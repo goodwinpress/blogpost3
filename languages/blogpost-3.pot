@@ -1,0 +1,299 @@
+# WordPress Blank Pot
+# Copyright (C) 2014 ...
+# This file is distributed under the GNU General Public License v2 or later.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: "
+"blogpost-3\n"
+"POT-Creation-Date: "
+"2021-06-14 12:58+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Your "
+"Name <you@example.com>\n"
+"Language-Team: "
+"goodwinpress@ya.ru\n"
+"Report-Msgid-Bugs-To: "
+"Translator Name "
+"<translations@example."
+"com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/"
+"plain; charset=UTF-8\n"
+"Content-Transfer-"
+"Encoding: 8bit\n"
+"Plural-Forms: "
+"nplurals=2; plural=n != "
+"1;\n"
+"X-Textdomain-Support: "
+"yesX-Generator: Poedit "
+"1.6.4\n"
+"X-Poedit-SourceCharset: "
+"UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;esc_html_e;"
+"esc_html_x:1,2c;"
+"esc_html__;esc_attr_e;"
+"esc_attr_x:1,2c;"
+"esc_attr__;_ex:1,2c;"
+"_nx:4c,1,2;"
+"_nx_noop:4c,1,2;_x:1,2c;"
+"_n:1,2;_n_noop:1,2;"
+"__ngettext:1,2;"
+"__ngettext_noop:1,2;_c,"
+"_nc:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
+"Language: en_US\n"
+"X-Generator: Poedit "
+"2.2.4\n"
+"X-Poedit-"
+"SearchPath-0: .\n"
+"X-Poedit-"
+"SearchPathExcluded-0: "
+"scripts\n"
+"X-Poedit-"
+"SearchPathExcluded-1: "
+"admin/titan-framework\n"
+"X-Poedit-"
+"SearchPathExcluded-2: "
+"admin/plugin-update-"
+"checker\n"
+"X-Poedit-"
+"SearchPathExcluded-3: "
+"admin/license.php\n"
+"X-Poedit-"
+"SearchPathExcluded-4: "
+"functions.php\n"
+
+#: 404.php:26
+msgid "Упс"
+msgstr ""
+
+#: admin/load-options.php:85
+msgid "Открыть обсуждение"
+msgstr ""
+
+#: admin/load-options.php:86
+msgid "Cкрыть обсуждение"
+msgstr ""
+
+#: comments.php:12
+msgid "Обсуждение:"
+msgstr ""
+
+#: comments.php:12
+msgid ""
+"пока нет комментариев"
+msgstr ""
+
+#: comments.php:12
+msgid "1 комментарий"
+msgstr ""
+
+#: comments.php:12
+msgid "% коммент."
+msgstr ""
+
+#: comments.php:28
+msgid ""
+"Предыдущие комментарии"
+msgstr ""
+
+#: comments.php:29
+msgid "Новые комментарии"
+msgstr ""
+
+#: comments.php:36
+msgid ""
+"Комментирование закрыто"
+msgstr ""
+
+#: comments.php:46
+#: comments.php:54
+msgid ""
+"Оставить комментарий"
+msgstr ""
+
+#: comments.php:47
+#: comments.php:55
+msgid "Отправить"
+msgstr ""
+
+#: files/back/breadcrumbs.php:10
+msgid "Главная"
+msgstr ""
+
+#: files/back/breadcrumbs.php:12
+msgid "Результаты поиска"
+msgstr ""
+
+#: files/back/breadcrumbs.php:13
+msgid "Записи с тегом"
+msgstr ""
+
+#: files/back/breadcrumbs.php:14
+msgid "Статьи автора"
+msgstr ""
+
+#: files/back/breadcrumbs.php:15
+msgid "Ошибка 404"
+msgstr ""
+
+#: files/back/breadcrumbs.php:16
+msgid "Страница "
+msgstr ""
+
+#: files/back/breadcrumbs.php:17
+msgid ""
+"Страница комментариев "
+msgstr ""
+
+#: files/back/comments-atts.php:34
+msgid ""
+"Ваш комментарий будет "
+"опубликован после "
+"проверки администратором "
+"сайта."
+msgstr ""
+
+#: files/back/optimize.php:127
+msgid ""
+"Сохранить  имя и e-mail "
+"в этом браузере для моих "
+"последующих комментариев"
+msgstr ""
+
+#: files/back/options-sidebar.php:12
+#: files/back/theme-functions.php:384
+msgid ""
+"Боковая колонка (сайдбар)"
+msgstr ""
+
+#: files/back/theme-functions.php:76
+msgid "Назад"
+msgstr ""
+
+#: files/back/theme-functions.php:77
+msgid "Вперёд"
+msgstr ""
+
+#: files/back/theme-functions.php:78
+#: files/back/theme-functions.php:80
+msgid "Навигация"
+msgstr ""
+
+#: files/back/theme-functions.php:117
+#: files/front/popup-search.php:10
+msgid "Что будем искать?"
+msgstr ""
+
+#: files/back/theme-functions.php:118
+#: files/back/theme-functions.php:184
+#: files/front/popup-search.php:14
+msgid "Найти"
+msgstr ""
+
+#: files/back/theme-functions.php:195
+msgid "Предыдущие записи"
+msgstr ""
+
+#: files/back/theme-functions.php:254
+msgid ""
+"Поставьте галочку, чтобы "
+"выделить эту запись из "
+"остальных"
+msgstr ""
+
+#: files/back/theme-functions.php:304
+msgid "Вход"
+msgstr ""
+
+#: files/back/theme-functions.php:416
+msgid ""
+"Поставьте галочку, чтобы "
+"добавить эту запись в "
+"раздел \"Читайте также\""
+msgstr ""
+
+#: files/back/theme-functions.php:468
+#: files/front/special-post.php:33
+#: search.php:41
+msgid "Подробнее"
+msgstr ""
+
+#: files/front/further-reading.php:7
+msgid "Читайте также"
+msgstr ""
+
+#: files/front/home-categories.php:6
+msgid "Рубрики"
+msgstr ""
+
+#: files/front/more-posts.php:3
+msgid ""
+"Ещё публикации из этой "
+"рубрики"
+msgstr ""
+
+#: files/front/popup-login.php:6
+msgid "Войти"
+msgstr ""
+
+#: files/front/popup-login.php:16
+msgid "Забыли пароль?"
+msgstr ""
+
+#: files/front/popup-search.php:18
+msgid "Например"
+msgstr ""
+
+#: files/front/post-navigation.php:21
+msgid "Предыдущая запись"
+msgstr ""
+
+#: files/front/post-navigation.php:55
+msgid "Следующая запись"
+msgstr ""
+
+#: files/front/share-btns.php:6
+msgid ""
+"Поделиться в соц. сетях "
+"и сервисах"
+msgstr ""
+
+#: footer.php:44
+msgid ""
+"Тема от GoodwinPress.ru"
+msgstr ""
+
+#: footer.php:70
+msgid "Вверх"
+msgstr ""
+
+#: search.php:21
+msgid "Вы искали"
+msgstr ""
+
+#: search.php:22
+msgid "Найдено публикаций"
+msgstr ""
+
+#: single.php:52
+msgid "обновлено"
+msgstr ""
+
+#: single.php:53
+msgid "На чтение"
+msgstr ""
+
+#: single.php:53
+msgid "мин"
+msgstr ""
+
+#: single.php:54
+msgid "Комментарии"
+msgstr ""
+
+#: single.php:65
+msgid "Продолжение"
+msgstr ""

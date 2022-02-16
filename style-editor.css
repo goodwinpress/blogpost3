@@ -1,0 +1,13 @@
+@font-face{font-family:'Fira Sans';font-style:normal;font-display:swap;font-weight:400;src:local(''),url('files/font/fira-sans-v11-latin_cyrillic-regular.woff2') format('woff2'),url('files/font/fira-sans-v11-latin_cyrillic-regular.woff') format('woff')}
+@font-face{font-family:'Fira Sans';font-style:normal;font-display:swap;font-weight:700;src:local(''),url('files/font/fira-sans-v11-latin_cyrillic-700.woff2') format('woff2'),url('files/font/fira-sans-v11-latin_cyrillic-700.woff') format('woff')}
+
+.editor-post-title__block .editor-post-title__input{font-family: 'Fira Sans'; color: #444}
+body{font-family:'Fira Sans', sans-serif;font-size:18px;line-height:1.65;background: #fff; color: #444}
+b,strong, h1,h2,h3,h4,h5,h6 {font-weight:700}
+ 
+h1{font-size:26px}
+h2{font-size:24px}
+h3{font-size:22px}
+h4{font-size:20px}
+h5{font-size:19px}
+h6{font-size:18px}

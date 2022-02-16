@@ -1,0 +1,1143 @@
+/*
+Theme Name: BlogPost 3
+Theme URI: https://goodwinpress.ru/wp-tema-blogpost-3
+Author: Goodwin
+Author URI: https://goodwinpress.ru/
+Description: Новая, красивая и быстрая тема для статейного сайта, из серии классических блогов от Гудвина - адаптивная, оптимизированная, с микроразметкой, бесконечной прокруткой, слайдером или постером (на выбор), тремя вариантами вывода записей (включая красивые анонсы), автоматическим обновлением, удобной панелью управления. Имеется настраиваемый темный режим! Также в комплекте сетка избранных рубрик на Главной, пять встроенных виджетов, липкое меню, отключаемый липкий сайдбар, виджеты в подвале, обновленные кнопки для расшаривания, подсчет времени на чтение публикации, поп-ап для логина, мобильное меню с поиском, lazy load (отложенная загрузка изображений), чистая страница для подключения Элементора или другого конструктора.
+Version: 1.0.1
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Tested up to: 5.8
+Requires PHP: 7.2
+Text Domain: blogpost-3
+Domain Path: /languages
+Tags: blog, blogpost, goodwin, goodwinpress, dark mode
+*/
+/*
+Часть стилей, которые настраиваются пользователем в консоли темы, вынесена в шапку сайта в head через файл admin/load-options.php
+*
+Содержание файла стилей:
+*
+01 Переменные
+02 Темный режим
+03 Очистка
+04 Отложенная загрузка изображений
+05 Шрифт темы
+06 Основные контейнеры
+07 Ссылки
+08 Шапка
+09 Подсветка шапки при скроллинге
+10 Логотип и текстовый заголовок
+11 Главное многоуровневое меню 
+12 Переключатель темного режима
+13 Кнопка логина в шапке
+14 Кнопка поиска в шапке
+15 Поп-ап поиск
+16 Поп-ап логин
+17 Основа для поп-апов
+18 Слайдер на Главной
+19 Заголовки
+20 Произвольный контент на Главной
+21 Рубрики сеткой на Главной
+22 Наклейка
+23 Блог + архивы 
+24 Информация о публикации
+25 Бесконечная прокрутка в блоге
+26 Красивые анонсы
+27 Постраничная навигация в блоге
+28 Оформление элементов блога, рубрик, поиска, 404
+29 Дочерние рубрики в архивах
+30 Шаблон записи
+31 Хлебные крошки
+32 Элементы записи - заголовок, изображение записи, отрывок
+33 Подвал записей - метки, блок Поделиться
+34 Цитаты в записях
+35 Оформление галерей в записях
+36 Навигация внутри записей - предыдущая, следующая
+37 Записи из той же рубрики
+38 Анимация миниатюр в разделе Записи из той же рубрики
+39 Таблицы
+40 Списки темы - маркированные
+41 Списки темы - нумерованные
+42 Виджеты
+43 Облако меток
+44 Календарь
+45 Виджет поиск
+46 Вывод записей списоком в виджетах
+47 Анимация миниатюры в списках и виджетах
+48 Встроенные виджеты Избранная рубрика и Свежие новости
+49 Встроенный виджет Слайдер
+50 Встроенный виджет Рубрики
+51 Встроенный виджет об авторе
+52 Блок Читайте также над подвалом в записях
+53 Кнопки соц сетей 
+54 Кнопки соц сетей в подвале
+55 Список коммментариев
+56 Навигация в комментариях
+57 Форма отправки комментариев
+58 Подвал сайта и кредитсы
+59 Поиск в моб. меню
+60 Мобильное меню
+61 Кнопка открытия мобильного меню 
+62 Бонус - стили для contact form 7
+63 Адаптивные стили
+*
+*/
+
+/* 01 Переменные*/
+ :root{
+--support-color:#999; /* дополнительный цвет шрифта  */
+--decor-color:#fff; /* подсветка фонов и полей ввода  */
+--effect-value: all 0.3s ease; /* анимация при наведении мыши */
+--darkmode-link:#cecece; /* цвет ссылок темной темы */
+--darkmode-border:#333; /* цвет бордюров темной темы */
+--darkmode-inputs:#333;  /* поля ввода темной темы */
+--block-box-shadow: 0 10px 30px rgba(164,168,255,.2); /* тени вокруг блоков */
+--font-bold:700; /* максимальная жирность текста*/
+--font-medium:500; /* средняя жирность текста*/
+ }
+
+/* 02 Темный режим */
+.dark .list-item,.dark .entry,.dark ul.featured-list li,.dark .post-excerpt,.dark span.comment-reply-link,.dark .gp-comment-form,.dark .comments-box .navigation,.dark .comment-form input[type="text"],.dark .comment-form input[type="email"],.dark #commentform textarea,.dark .more-posts_item,.dark table,.dark table tr,.dark table td,.dark .widget-title,.dark .footer-col .widget-title,.dark .credits,.dark .archive-desc,.dark .further-reading,.dark .gp-cat-list-widget li, .dark .wpcf7 input,.dark .wpcf7 select,.dark .wpcf7 textarea,.dark .widget_search input[type="search"], .dark #loginform input[type="text"], .dark #loginform input[type="password"], .dark .popup .s, .dark .post-nav{border-color:var(--darkmode-border)}
+.dark textarea,.dark .wpcf7 input,.dark .wpcf7 select,.dark .wpcf7 textarea,.dark .widget_search input[type="search"], .dark #loginform input[type="text"], .dark #loginform input[type="password"],.dark .comment-form input[type="email"],.dark .comment-form input[type="text"], .dark .popup .s, .dark .mob-search-field{background:var(--darkmode-inputs);color:var(--support-color)!important}
+#site-wrapper.dark a, .dark .gp-about-me-phone, .dark .gp-about-me-mail {color:var(--darkmode-link)}
+.dark .add-menu-home,.dark .toggle-search:before{opacity:.5}
+.dark .mob-menu li{border-color:#333}
+.dark ul.svg-social-icons li a,.dark .anycode,.dark .page-contact-item_one:before,.dark .page-contact-item_two:before,.dark .page-contact-item_three:before,.dark .page-contact-item_four:before{opacity:.5}
+.dark .specialpost{background-size:cover}
+.dark .hamburger-inner,.dark .hamburger-inner::before,.dark .hamburger-inner::after{background-color:#f9f9f9}
+.dark .home-cat-item-wrapper:before  {display: none}
+
+ /* 03 Очистка */html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}
+ body{line-height:1}
+ strong{font-weight:900}
+ em,i{font-style:italic}
+ ol,ul{list-style:none}
+ blockquote,q{quotes:none}
+ blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}
+ table{border-collapse:collapse;border-spacing:0}
+ figure{display:block;margin:0}
+ iframe{display:block;max-width:100%}
+ video{display:block}
+ svg,img,embed,object{display:block;height:auto;max-width:100%}
+ p{margin-bottom:25px}
+ p:last-child{margin-bottom:0}
+ img{border:0}
+ .aligncenter{margin:0 auto 20px;display:block}
+ .alignleft{float:left}
+ .alignright{float:right}
+ html{font-size:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;overflow-x:hidden}
+ dl{margin:0 0 24px}
+ dt{font-weight:bold}
+ dd{margin-bottom:18px}
+ big{font-size:131.25%}
+ ins{text-decoration:none}
+ abbr,acronym{border-bottom:1px dotted #666;cursor:help}
+ sup,sub{height:0;line-height:1;position:relative;vertical-align:baseline}
+ sup{bottom:1ex}
+ sub{top:.5ex}
+ input,textarea{vertical-align:middle;background:var(--decor-color)}
+ input:focus{outline:0}
+ pre{border:1px solid rgba(0,0,0,0.1);margin-bottom:24px;max-width:100%;overflow:auto;padding:12px;white-space:pre;white-space:pre-wrap;word-wrap:break-word}
+ hr{display:block;width:100%;height:1px;border:0;border-bottom:1px solid #eeeeef;margin:30px auto 40px;clear:both}
+ input:focus{border:1px solid #9ab3f5}
+ .red{color:red}
+ .gp-clearfix:after{content:"\00A0";display:block;clear:both;visibility:hidden;line-height:0;height:0}
+ input::placeholder,input:placeholder-shown{color:var(--support-color)}
+ ::-moz-selection{background:#6a097d;color:var(--decor-color)}
+ ::selection{background:#6a097d;color:var(--decor-color)}
+ ::-webkit-selection{background:#6a097d;color:var(--decor-color)}
+ button:focus{outline:0}
+ p{-webkit-hyphens:auto;-moz-hyphens:auto;-ms-hyphens:auto}
+ button{-webkit-appearance:none;border:0;background:transparent;-webkit-font-smoothing:inherit;-moz-osx-font-smoothing:inherit;cursor:pointer;border-radius:0}
+.screen-reader-text {display: none}
+.wp-caption, .wp-caption-text, .gallery-caption {color:var(--support-color);font-size:14px;}
+.sticky {}
+.bypostauthor{}
+a.gpress {text-decoration: none; color:var(--decor-color)}
+ 
+/* 04 Отложенная загрузка изображений  */
+.lazy-hidden{opacity:0}
+.lazy-loaded{-webkit-transition:opacity .3s;-moz-transition:opacity .3s;-ms-transition:opacity .3s;-o-transition:opacity .3s;transition:opacity .3s;opacity:1}
+ 
+/* 05 Шрифт темы */
+@font-face{font-family:'Fira Sans';font-style:normal;font-display:swap;font-weight:400;src:local(''),url('files/font/fira-sans-v11-latin_cyrillic-regular.woff2') format('woff2'),url('files/font/fira-sans-v11-latin_cyrillic-regular.woff') format('woff')}
+@font-face{font-family:'Fira Sans';font-style:normal;font-display:swap;font-weight:500;src:local(''),url('files/font/fira-sans-v11-latin_cyrillic-500.woff2') format('woff2'),url('files/font/fira-sans-v11-latin_cyrillic-500.woff') format('woff')}
+@font-face{font-family:'Fira Sans';font-style:normal;font-display:swap;font-weight:700;src:local(''),url('files/font/fira-sans-v11-latin_cyrillic-700.woff2') format('woff2'),url('files/font/fira-sans-v11-latin_cyrillic-700.woff') format('woff')}
+ 
+ /* 06 Основные контейнеры */
+*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+body{font-weight:400;word-wrap:break-word;font-family:'Fira Sans',sans-serif;font-size:18px;line-height:1.62; background: #000}
+#site-wrapper {width: 100%; height: 100%; float: left; margin: 0; padding: 0}
+.wrap{width:100%;max-width:1920px;margin:0 auto;position:relative}
+.gp-container{float:left;width:100%;margin:120px 0 10px}
+main{width:69%}
+#sidebar{float:left;width:28%; position: relative}
+.overlay, .overlay_popup{display:none;position:fixed;z-index:100;top:0;right:0;left:0;bottom:0;background:#2b2e4a}
+.overlay_popup {background:rgba(0,0,0,.9); z-index:200}
+.dark .overlay_popup {background: rgba(0,0,0,.95)}
+main.fullwidth{width:100%;float:left} 
+main.fullwidth .comments-box,main.fullwidth .toggle-comments,main.fullwidth .post-navigation,main.fullwidth .more-posts {width:70%;margin-left:15%;margin-right:15%}
+.port, .footer-port{width:100%;max-width:1200px;margin:0 auto}
+.flex-port{width:100%;max-width:1200px;margin:0 auto 50px;display:flex;flex-flow:row wrap;justify-content:space-between;position:relative; z-index: 1}
+.no-margin{margin-bottom:0}
+
+/* 07 Ссылки */
+ a{text-decoration:underline;transition:var(--effect-value)}
+ a:hover{text-decoration:underline}
+ 
+/* 08 Шапка*/
+header{width:100%; position:fixed; top:0; left: 0; right:0; z-index:10; background: var(--decor-color); line-height: 80px; box-shadow: var(--block-box-shadow)}
+.header-flex-port{width:100%; display:flex;flex-flow:row nowrap;justify-content: flex-start; position:relative; padding: 0 40px}
+.mob-menu, .open_mob{display:none}
+
+/* 09 Подсветка шапки при скроллинге*/
+header.colored .text-title h1 a, header.colored .text-title span a, header.colored .menunav li a, header.colored .menu-item-has-children:before, header.colored .gp-login {color: var(--decor-color)}
+header.colored .slider, header.colored .slider::before{ background-color:var(--decor-color)}
+
+/* 10 Логотип и текстовый заголовок */
+.site-title{flex-basis: 14%; text-align: left}
+.text-title h1, .text-title span{font-size:23px;font-weight:var(--font-bold);display:block; transition: var(--effect-value)}
+.text-title h1 a, .text-title span a {text-decoration:none}
+.text-title h1 a:hover, .text-title span a:hover {text-decoration:underline}
+
+/* 11 Главное многоуровневое меню */
+.menunav{position:relative; flex-basis: 71%; text-align: center}
+.menunav ul{width:100%;margin:0;list-style-type:none; padding-top: 1px}
+.menunav ul li{position:relative;display:inline-block;z-index:1;font-size:14px; text-transform: uppercase; letter-spacing: 1px; font-weight:var(--font-medium);transition:var(--effect-value)}
+.menunav li a{padding:0;text-decoration:none;display:block; margin: 0 10px}
+.menunav li a:hover{text-decoration:underline}
+.menunav ul li ul{position:absolute;height:auto;top:80px;left:-20px;width:260px;padding:15px 0 15px 30px; text-align: left}
+.menunav ul li ul li,.menunav ul li ul li ul li{display:list-item;font-size:13px; line-height: 1; font-weight:var(--font-medium)}
+.menunav ul li ul li ul{top:-15px;left:100%}
+.menunav ul li ul li a{padding:16px 0; margin: 0}
+.menunav ul li ul li a:hover{text-decoration: underline}
+.menunav li ul.sub-menu{display:none}
+.menu-item-has-children a{padding-right:18px!important}
+.menu-item-has-children:before{content:'↓';  position:absolute;top:0px;right:10px; font-weight: 400; transition: var(--effect-value); font-size: 11px}
+.sub-menu .menu-item-has-children:before{content:'→';top:18px;right:15px; font-size: 12px; font-weight: 400;}
+
+/* 12 Переключатель темного режима */
+.theme-switch {width:30px;height:30px; position: absolute; top:26px; right:30px}
+.switch{ display:inline-block; width:30px;height:30px; cursor: pointer} 
+.theme-switch{background-repeat:no-repeat; background-size:25px 25px;background-position: center center; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 302.4 302.4' style='enable-background:new 0 0 302.4 302.4;' xml:space='preserve'%3e%3cg%3e%3cg%3e%3cpath d='M204.8,97.6C191.2,84,172,75.2,151.2,75.2s-40,8.4-53.6,22.4c-13.6,13.6-22.4,32.8-22.4,53.6s8.8,40,22.4,53.6 c13.6,13.6,32.8,22.4,53.6,22.4s40-8.4,53.6-22.4c13.6-13.6,22.4-32.8,22.4-53.6S218.8,111.2,204.8,97.6z M190.4,190.4 c-10,10-24,16-39.2,16s-29.2-6-39.2-16s-16-24-16-39.2s6-29.2,16-39.2s24-16,39.2-16s29.2,6,39.2,16s16,24,16,39.2 S200.4,180.4,190.4,190.4z'/%3e%3c/g%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath d='M292,140.8h-30.8c-5.6,0-10.4,4.8-10.4,10.4c0,5.6,4.8,10.4,10.4,10.4H292c5.6,0,10.4-4.8,10.4-10.4 C302.4,145.6,297.6,140.8,292,140.8z'/%3e%3c/g%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath d='M151.2,250.8c-5.6,0-10.4,4.8-10.4,10.4V292c0,5.6,4.8,10.4,10.4,10.4c5.6,0,10.4-4.8,10.4-10.4v-30.8 C161.6,255.6,156.8,250.8,151.2,250.8z'/%3e%3c/g%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath d='M258,243.6l-22-22c-3.6-4-10.4-4-14.4,0s-4,10.4,0,14.4l22,22c4,4,10.4,4,14.4,0S262,247.6,258,243.6z'/%3e%3c/g%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath d='M151.2,0c-5.6,0-10.4,4.8-10.4,10.4v30.8c0,5.6,4.8,10.4,10.4,10.4c5.6,0,10.4-4.8,10.4-10.4V10.4 C161.6,4.8,156.8,0,151.2,0z'/%3e%3c/g%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath d='M258.4,44.4c-4-4-10.4-4-14.4,0l-22,22c-4,4-4,10.4,0,14.4c3.6,4,10.4,4,14.4,0l22-22C262.4,54.8,262.4,48.4,258.4,44.4z' /%3e%3c/g%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath d='M41.2,140.8H10.4c-5.6,0-10.4,4.8-10.4,10.4s4.4,10.4,10.4,10.4h30.8c5.6,0,10.4-4.8,10.4-10.4 C51.6,145.6,46.8,140.8,41.2,140.8z'/%3e%3c/g%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath d='M80.4,221.6c-3.6-4-10.4-4-14.4,0l-22,22c-4,4-4,10.4,0,14.4s10.4,4,14.4,0l22-22C84.4,232,84.4,225.6,80.4,221.6z'/%3e%3c/g%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath d='M80.4,66.4l-22-22c-4-4-10.4-4-14.4,0s-4,10.4,0,14.4l22,22c4,4,10.4,4,14.4,0S84.4,70.4,80.4,66.4z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e ")}
+.switch input{opacity:0;width:0;height:0}
+.theme-switch.checked, .mob-menu .theme-switch.checked, header.colored .theme-switch.checked{background-size:20px 20px; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg version='1.1'  xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 312.999 312.999' style='enable-background:new 0 0 312.999 312.999;' xml:space='preserve'%3e%3cg%3e%3cg%3e%3cpath d='M305.6,178.053c-3.2-0.8-6.4,0-9.2,2c-10.4,8.8-22.4,16-35.6,20.8c-12.4,4.8-26,7.2-40.4,7.2c-32.4,0-62-13.2-83.2-34.4 c-21.2-21.2-34.4-50.8-34.4-83.2c0-13.6,2.4-26.8,6.4-38.8c4.4-12.8,10.8-24.4,19.2-34.4c3.6-4.4,2.8-10.8-1.6-14.4 c-2.8-2-6-2.8-9.2-2c-34,9.2-63.6,29.6-84.8,56.8c-20.4,26.8-32.8,60-32.8,96.4c0,43.6,17.6,83.2,46.4,112s68.4,46.4,112,46.4 c36.8,0,70.8-12.8,98-34c27.6-21.6,47.6-52.4,56-87.6C314.4,184.853,311.2,179.253,305.6,178.053z M244.4,261.653 c-23.2,18.4-52.8,29.6-85.2,29.6c-38,0-72.4-15.6-97.2-40.4c-24.8-24.8-40.4-59.2-40.4-97.2c0-31.6,10.4-60.4,28.4-83.6 c12.4-16,28-29.2,46-38.4c-2,4.4-4,8.8-5.6,13.6c-5.2,14.4-7.6,29.6-7.6,45.6c0,38,15.6,72.8,40.4,97.6s59.6,40.4,97.6,40.4 c16.8,0,32.8-2.8,47.6-8.4c5.2-2,10.4-4,15.2-6.4C274,232.453,260.8,248.853,244.4,261.653z' fill='%23fff'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e ")}
+.mob-menu .theme-switch {position: absolute; top:28px; right:0; left: 38px; display: none}
+.mob-menu .theme-switch, header.colored .theme-switch {background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 302.4 302.4' style='enable-background:new 0 0 302.4 302.4;' xml:space='preserve'%3e%3cg%3e%3cg%3e%3cpath d='M204.8,97.6C191.2,84,172,75.2,151.2,75.2s-40,8.4-53.6,22.4c-13.6,13.6-22.4,32.8-22.4,53.6s8.8,40,22.4,53.6 c13.6,13.6,32.8,22.4,53.6,22.4s40-8.4,53.6-22.4c13.6-13.6,22.4-32.8,22.4-53.6S218.8,111.2,204.8,97.6z M190.4,190.4 c-10,10-24,16-39.2,16s-29.2-6-39.2-16s-16-24-16-39.2s6-29.2,16-39.2s24-16,39.2-16s29.2,6,39.2,16s16,24,16,39.2 S200.4,180.4,190.4,190.4z' fill='%23fff'/%3e%3c/g%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath d='M292,140.8h-30.8c-5.6,0-10.4,4.8-10.4,10.4c0,5.6,4.8,10.4,10.4,10.4H292c5.6,0,10.4-4.8,10.4-10.4 C302.4,145.6,297.6,140.8,292,140.8z' fill='%23fff'/%3e%3c/g%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath d='M151.2,250.8c-5.6,0-10.4,4.8-10.4,10.4V292c0,5.6,4.8,10.4,10.4,10.4c5.6,0,10.4-4.8,10.4-10.4v-30.8 C161.6,255.6,156.8,250.8,151.2,250.8z' fill='%23fff'/%3e%3c/g%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath d='M258,243.6l-22-22c-3.6-4-10.4-4-14.4,0s-4,10.4,0,14.4l22,22c4,4,10.4,4,14.4,0S262,247.6,258,243.6z' fill='%23fff'/%3e%3c/g%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath d='M151.2,0c-5.6,0-10.4,4.8-10.4,10.4v30.8c0,5.6,4.8,10.4,10.4,10.4c5.6,0,10.4-4.8,10.4-10.4V10.4 C161.6,4.8,156.8,0,151.2,0z' fill='%23fff'/%3e%3c/g%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath d='M258.4,44.4c-4-4-10.4-4-14.4,0l-22,22c-4,4-4,10.4,0,14.4c3.6,4,10.4,4,14.4,0l22-22C262.4,54.8,262.4,48.4,258.4,44.4z' fill='%23fff'/%3e%3c/g%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath d='M41.2,140.8H10.4c-5.6,0-10.4,4.8-10.4,10.4s4.4,10.4,10.4,10.4h30.8c5.6,0,10.4-4.8,10.4-10.4 C51.6,145.6,46.8,140.8,41.2,140.8z' fill='%23fff'/%3e%3c/g%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath d='M80.4,221.6c-3.6-4-10.4-4-14.4,0l-22,22c-4,4-4,10.4,0,14.4s10.4,4,14.4,0l22-22C84.4,232,84.4,225.6,80.4,221.6z' fill='%23fff'/%3e%3c/g%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath d='M80.4,66.4l-22-22c-4-4-10.4-4-14.4,0s-4,10.4,0,14.4l22,22c4,4,10.4,4,14.4,0S84.4,70.4,80.4,66.4z' fill='%23fff'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e ")}
+.mob-menu .theme-switch .switch:after {content: 'Светлый режим'; position: absolute; top:4px; right: -120px; font-size: 14px}
+.mob-menu .theme-switch.checked .switch:after {content: 'Тёмный режим'; right: -113px}
+
+/* 13 Кнопка логина в шапке */
+.gp-login{display:block;position:absolute;top:25px;right:140px;font-size:14px; line-height: 1; font-weight:400; color:#e6e6e6;text-decoration:none;padding-left:10px;text-align: left; padding-top: 0}
+header .gp-login {color:var(--support-color); padding-top:8px}
+.gp-login:hover{text-decoration:underline}
+.gp-login:before{content: ''; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg height='512pt' viewBox='0 0 512 512' width='512pt' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m437.019531 74.980469c-48.351562-48.351563-112.640625-74.980469-181.019531-74.980469-68.382812 0-132.667969 26.628906-181.019531 74.980469-48.351563 48.351562-74.980469 112.636719-74.980469 181.019531 0 68.378906 26.628906 132.667969 74.980469 181.019531 48.351562 48.351563 112.636719 74.980469 181.019531 74.980469 68.378906 0 132.667969-26.628906 181.019531-74.980469 48.351563-48.351562 74.980469-112.640625 74.980469-181.019531 0-68.382812-26.628906-132.667969-74.980469-181.019531zm-308.679687 367.40625c10.707031-61.648438 64.128906-107.121094 127.660156-107.121094 63.535156 0 116.953125 45.472656 127.660156 107.121094-36.347656 24.972656-80.324218 39.613281-127.660156 39.613281s-91.3125-14.640625-127.660156-39.613281zm46.261718-218.519531c0-44.886719 36.515626-81.398438 81.398438-81.398438s81.398438 36.515625 81.398438 81.398438c0 44.882812-36.515626 81.398437-81.398438 81.398437s-81.398438-36.515625-81.398438-81.398437zm235.042969 197.710937c-8.074219-28.699219-24.109375-54.738281-46.585937-75.078125-13.789063-12.480469-29.484375-22.328125-46.359375-29.269531 30.5-19.894531 50.703125-54.3125 50.703125-93.363281 0-61.425782-49.976563-111.398438-111.402344-111.398438s-111.398438 49.972656-111.398438 111.398438c0 39.050781 20.203126 73.46875 50.699219 93.363281-16.871093 6.941406-32.570312 16.785156-46.359375 29.265625-22.472656 20.339844-38.511718 46.378906-46.585937 75.078125-44.472657-41.300781-72.355469-100.238281-72.355469-165.574219 0-124.617188 101.382812-226 226-226s226 101.382812 226 226c0 65.339844-27.882812 124.277344-72.355469 165.578125zm0 0'/%3e%3c/svg%3e"); background-repeat:no-repeat;width:30px;height:30px; background-size:22px 22px; display: block; cursor: pointer;  background-position: center center; position: absolute; top:0; left:-30px}
+.dark .gp-login:before, header.colored .gp-login:before, .mob-menu .gp-login:before {background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg height='512pt' viewBox='0 0 512 512' width='512pt' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m437.019531 74.980469c-48.351562-48.351563-112.640625-74.980469-181.019531-74.980469-68.382812 0-132.667969 26.628906-181.019531 74.980469-48.351563 48.351562-74.980469 112.636719-74.980469 181.019531 0 68.378906 26.628906 132.667969 74.980469 181.019531 48.351562 48.351563 112.636719 74.980469 181.019531 74.980469 68.378906 0 132.667969-26.628906 181.019531-74.980469 48.351563-48.351562 74.980469-112.640625 74.980469-181.019531 0-68.382812-26.628906-132.667969-74.980469-181.019531zm-308.679687 367.40625c10.707031-61.648438 64.128906-107.121094 127.660156-107.121094 63.535156 0 116.953125 45.472656 127.660156 107.121094-36.347656 24.972656-80.324218 39.613281-127.660156 39.613281s-91.3125-14.640625-127.660156-39.613281zm46.261718-218.519531c0-44.886719 36.515626-81.398438 81.398438-81.398438s81.398438 36.515625 81.398438 81.398438c0 44.882812-36.515626 81.398437-81.398438 81.398437s-81.398438-36.515625-81.398438-81.398437zm235.042969 197.710937c-8.074219-28.699219-24.109375-54.738281-46.585937-75.078125-13.789063-12.480469-29.484375-22.328125-46.359375-29.269531 30.5-19.894531 50.703125-54.3125 50.703125-93.363281 0-61.425782-49.976563-111.398438-111.402344-111.398438s-111.398438 49.972656-111.398438 111.398438c0 39.050781 20.203126 73.46875 50.699219 93.363281-16.871093 6.941406-32.570312 16.785156-46.359375 29.265625-22.472656 20.339844-38.511718 46.378906-46.585937 75.078125-44.472657-41.300781-72.355469-100.238281-72.355469-165.574219 0-124.617188 101.382812-226 226-226s226 101.382812 226 226c0 65.339844-27.882812 124.277344-72.355469 165.578125zm0 0' fill='%23fff'/%3e%3c/svg%3e")}  
+.mob-menu .gp-login {display: none}
+
+/* 14 Кнопка поиска в шапке */
+.search-site {position:absolute;top:26px;right:90px; line-height: 1}
+.search-site-btn {background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 511.999 511.999' style='enable-background:new 0 0 511.999 511.999;' xml:space='preserve'%3e%3cg%3e%3cg%3e%3cpath d='M225.773,0.616C101.283,0.616,0,101.622,0,225.773s101.284,225.157,225.773,225.157s225.774-101.006,225.774-225.157 S350.263,0.616,225.773,0.616z M225.773,413.917c-104.084,0-188.761-84.406-188.761-188.145 c0-103.745,84.677-188.145,188.761-188.145s188.761,84.4,188.761,188.145C414.535,329.511,329.858,413.917,225.773,413.917z'/%3e%3c/g%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath d='M506.547,479.756L385.024,358.85c-7.248-7.205-18.963-7.174-26.174,0.068c-7.205,7.248-7.174,18.962,0.068,26.174 l121.523,120.906c3.615,3.59,8.328,5.385,13.053,5.385c4.756,0,9.506-1.82,13.121-5.453 C513.82,498.681,513.789,486.967,506.547,479.756z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e "); background-repeat:no-repeat;width:30px;height:30px; background-size:19px 19px; cursor:pointer; background-position: center center; display:inline-block}
+.dark .search-site-btn, header.colored .search-site-btn {background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 511.999 511.999' style='enable-background:new 0 0 511.999 511.999;' xml:space='preserve'%3e%3cg%3e%3cg%3e%3cpath d='M225.773,0.616C101.283,0.616,0,101.622,0,225.773s101.284,225.157,225.773,225.157s225.774-101.006,225.774-225.157 S350.263,0.616,225.773,0.616z M225.773,413.917c-104.084,0-188.761-84.406-188.761-188.145 c0-103.745,84.677-188.145,188.761-188.145s188.761,84.4,188.761,188.145C414.535,329.511,329.858,413.917,225.773,413.917z' fill='%23fff' /%3e%3c/g%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath d='M506.547,479.756L385.024,358.85c-7.248-7.205-18.963-7.174-26.174,0.068c-7.205,7.248-7.174,18.962,0.068,26.174 l121.523,120.906c3.615,3.59,8.328,5.385,13.053,5.385c4.756,0,9.506-1.82,13.121-5.453 C513.82,498.681,513.789,486.967,506.547,479.756z' fill='%23fff' /%3e%3c/g%3e%3c/g%3e%3c/svg%3e ")}
+
+/* 15 Поп-ап поиск  */
+#popup1, #popup4{max-width:480px}
+.popup #search-form{width:100%;  display:flex;flex-flow:row wrap;justify-content:space-between}
+.popup .s{flex-basis:74%;height:40px;padding:24px 20px;color:#333;border:1px solid var(--support-color);font-size:17px;font-family:inherit;font-weight:400}
+.popup .searchSubmit{flex-basis:22%;padding:10px 0;font-size:16px;line-height:1;cursor:pointer;border:0;-webkit-appearance:none;box-shadow:none;color:var(--decor-color);font-family:inherit;font-weight:var(--font-medium); --direction:90deg}
+.popup .s:focus{border:1px solid #9ab3f5;box-shadow:0 0 0 1px #9ab3f5}
+#popup1  p{font-size:14px;display:block;margin:25px 0 0 0}
+.gp-inp-text{border-width:0 0 1px 0;border-style:dotted;cursor:pointer}
+
+/* 16 поп-ап логин */
+#loginform{width:100%;display:flex;flex-flow:row wrap;justify-content:space-between}
+#loginform p{flex-basis:100%;margin:0 0 10px 0;position:relative}
+#loginform label{color:var(--support-color);font-size:15px;display:block;margin-bottom:5px}
+#loginform input[type="text"],#loginform input[type="password"]{font-family:inherit;font-size:17px;width:100%;padding:14px 15px;margin:0;border:1px solid rgba(29,43,100,.4);font-weight:400;background-color:transparent}
+#loginform input[type="password"]{margin-bottom:0}
+#loginform .login-remember label{margin:0}
+#loginform input[type="submit"]{display:block;width:100%;font-size:16px;float:right;text-align:center;text-decoration:none;border:0;cursor:pointer;padding:15px 0;transition:all .3s ease-in-out;color:var(--decor-color);font-weight:var(--font-medium);--direction:90deg}
+#loginform input[type="submit"]:hover, .popup .searchSubmit:hover {--direction:-90deg}
+#popup4 p{font-size: 17px}
+#popup4 ul{padding:10px 0 0}
+#popup4 ul li{float:left;width:50%;font-size:15px}
+#popup4 ul li:last-child{text-align:right}
+#popup4 ul li a{color:var(--support-color)}
+#loginform input[type="text"]:focus,#loginform input[type="password"]:focus{border:1px solid #9ab3f5;box-shadow:0 0 0 1px #9ab3f5;outline-color:#9ab3f5;background-color:transparent}
+.login-item{display:block;padding-left:50px;margin-bottom:20px;position:relative; font-size:16px}
+.register-item:before,.loginout-item:before{text-align:center;width:30px;height:30px;border-radius:50%;position:absolute;top:0;left:0; z-index:10}
+.register-item:before {background-size:16px 16px; content:'';  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3e%3cg%3e%3cg%3e%3cpath d='M509.827,252.639L390.188,41.501c-2.969-5.24-8.527-8.479-14.55-8.479H136.362c-6.023,0-11.58,3.239-14.549,8.479 L2.174,252.639c-2.959,5.221-2.893,11.627,0.172,16.786l119.639,201.371c3.014,5.073,8.478,8.182,14.378,8.182h239.277 c5.9,0,11.363-3.109,14.378-8.182l119.639-201.371C512.72,264.265,512.785,257.859,509.827,252.639z M256,377.944 c-64.549,0-117.063-52.515-117.063-117.064S191.451,143.817,256,143.817s117.064,52.515,117.064,117.063 S320.55,377.944,256,377.944z' fill='%23fff'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e ");  background-repeat: no-repeat; background-position: center center}
+.loginout-item:before {background-size:14px 14px; content:''; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3e%3cg%3e%3cg%3e%3cpath d='M488.727,0H302.545c-12.853,0-23.273,10.42-23.273,23.273c0,12.853,10.42,23.273,23.273,23.273h129.997L192.999,286.09 c-9.087,9.087-9.087,23.823,0,32.912c4.543,4.543,10.499,6.816,16.455,6.816c5.956,0,11.913-2.273,16.455-6.817L465.455,79.458 v129.997c0,12.853,10.42,23.273,23.273,23.273c12.853,0,23.273-10.42,23.273-23.273V23.273C512,10.42,501.58,0,488.727,0z' fill='%23fff'/%3e%3c/g%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath d='M395.636,232.727c-12.853,0-23.273,10.42-23.273,23.273v209.455H46.545V139.636H256c12.853,0,23.273-10.42,23.273-23.273 S268.853,93.091,256,93.091H23.273C10.42,93.091,0,103.511,0,116.364v372.364C0,501.58,10.42,512,23.273,512h372.364 c12.853,0,23.273-10.42,23.273-23.273V256C418.909,243.147,408.489,232.727,395.636,232.727z' fill='%23fff'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e "); background-repeat: no-repeat; background-position: center center}
+
+/* 17 Основа для поп-апов */
+.popup{display:none;z-index:1000;width:100%;max-width:640px;background:var(--decor-color);padding:50px 50px 40px;position:fixed;top:12%;left:50%;transform:translate(-50%,0);border-radius:10px}
+.pop-title{flex-basis:100%;margin-bottom:30px;display:block;font-weight:var(--font-medium);font-size:18px;line-height:1.3}
+.popup .close{cursor:pointer;position:absolute;top:19px;right:19px;width:42px;height:42px;z-index:100;transition:.3s ease;border:1px solid #555;z-index:10;border-radius:50%}
+.popup .close:before{content:'';width:16px;height:16px;background-size:16px 16px;position:absolute;top:12px;right:12px;background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 47.971 47.971' xml:space='preserve'%3E%3Cg%3E%3Cpath d='M28.228,23.986L47.092,5.122c1.172-1.171,1.172-3.071,0-4.242c-1.172-1.172-3.07-1.172-4.242,0L23.986,19.744L5.121,0.88 c-1.172-1.172-3.07-1.172-4.242,0c-1.172,1.171-1.172,3.071,0,4.242l18.865,18.864L0.879,42.85c-1.172,1.171-1.172,3.071,0,4.242 C1.465,47.677,2.233,47.97,3,47.97s1.535-0.293,2.121-0.879l18.865-18.864L42.85,47.091c0.586,0.586,1.354,0.879,2.121,0.879 s1.535-0.293,2.121-0.879c1.172-1.171,1.172-3.071,0-4.242L28.228,23.986z' style='fill:%23555;'/%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3C/svg%3E%0A")}
+
+/* 18 Слайдер на Главной */
+.gp-home-slider{width:100%; margin:80px 0 50px}
+.gp-home-poster {position: relative}
+.gp-home-slider-item {position: relative; z-index: 10}
+.slider-caption {position:absolute;left:50%;bottom:0; z-index: 1;width: 100%; max-width:800px; background:var(--decor-color); padding: 30px 60px; transform:translate(-50%,0); text-align: center; border-top-left-radius: 4px;  border-top-right-radius: 4px}
+.slider-title {display:block; font-size:22px;font-weight:var(--font-bold);line-height:1.55; transition:var(--effect-value)}
+.slider-title:hover {text-decoration:underline}
+.owl-nav.disabled{display:none}
+.owl-prev{ transform:rotate(-90deg);position:absolute;top:50%;margin-top:5px;left:30px;width:50px;height:50px;text-align:center;overflow:hidden;cursor:pointer}
+.owl-next{transform:rotate( 90deg); position:absolute;top:50%;margin-top:5px;right:30px;width:50px;height:50px;text-align:center;overflow:hidden;cursor:pointer}
+.owl-prev, .owl-next{font-size:24px;line-height:25px;color:var(--decor-color);padding:10px;border-radius:50%;transition:var(--effect-value); z-index: 10}
+.owl-prev:before{content:"↑"}
+.owl-next:before{content:"↑"}
+.owl-carousel .animated{-webkit-animation-duration:1000ms;animation-duration:1000ms;-webkit-animation-fill-mode:both;animation-fill-mode:both}
+.owl-animated-in{z-index:0}
+.owl-animated-out{z-index:1}
+.owl-carousel .fadeOut{-webkit-animation-name:fadeOut;animation-name:fadeOut}
+@-webkit-keyframes fadeOut{0%{opacity:1}
+100%{opacity:0}
+}@keyframes fadeOut{0%{opacity:1}
+100%{opacity:0}
+}.owl-carousel{display:none;width:100%;-webkit-tap-highlight-color:transparent;cursor:move;position:relative;z-index:1}
+.owl-stage{position:relative;-ms-touch-action:pan-Y}
+.owl-stage:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0}
+.owl-stage-outer{position:relative;  overflow:hidden;  -webkit-transform:translate3d(0px,0px,0px)}
+.owl-controls .owl-nav .owl-prev,.owl-controls .owl-nav .owl-next,.owl-controls .owl-dot{cursor:pointer;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+.owl-loaded{display:block}
+.owl-loading{opacity:0;display:block}
+.owl-hidden{opacity:0}
+.owl-refresh .owl-item{display:none}
+.owl-item{position:relative;min-height:1px;float:left;-webkit-backface-visibility:hidden;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+.owl-text-select-on .owl-item{-webkit-user-select:auto;-moz-user-select:auto;-ms-user-select:auto;user-select:auto}
+.no-js .owl-carousel{display:block}
+.owl-prev,.owl-next{  border:1px solid var(--decor-color)}
+
+/* 19 Заголовки */
+h1,h2,h3,h4,h5,h6{font-weight:var(--font-bold);display:block}
+h2.post-title{font-size:22px;line-height:1.4;margin-bottom:15px}
+h2.post-title a,.list-title a,h2.item-title a{text-decoration:none}
+h2.post-title a:hover,.list-title a:hover,h2.item-title a:hover{text-decoration:underline}
+.post-content h1,.post-content h2,.post-content h3,.post-content h4,.post-content h5,.post-content h6,.gp-custom-content h1,.gp-custom-content h2,.gp-custom-content h3,.gp-custom-content h4,.gp-custom-content h5,.gp-custom-content h6{margin-bottom:16px}
+h1{font-size:22px}
+h2{font-size:20px}
+h3{font-size:19px}
+h4{font-size:18px}
+h5{font-size:17px}
+h6{font-size:16px}
+
+/* 20 Произвольный контент на Главной */
+.gp-custom-content{float:left; width: 100%; margin: 0px 0 45px; background:var(--decor-color); box-shadow: var(--block-box-shadow); padding: 30px}
+
+/* 21 Рубрики сеткой на Главной */
+.home-cat-grid{ margin-bottom: 10px}
+.home-cat-item{flex-basis:31.5%;margin-bottom:35px;transition:var(--effect-value); background:var(--decor-color); box-shadow: var(--block-box-shadow);  padding: 25px; border-radius: 4px; overflow: hidden}
+.home-cat-item-wrapper{width:100%;max-width:370px;height:240px;position:relative;background-position:center center;background-size:cover;background-repeat:no-repeat}
+.home-cat-item-caption{position:absolute;bottom:0;left:20px;right:20px;display:block;font-size:18px;font-weight:var(--font-bold);line-height:1;padding:20px;z-index:2;color:var(--decor-color);text-align:center;transition:var(--effect-value)}
+.home-cat-item-wrapper:after{content:'';position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,1) 100%);z-index:1; transition: var(--effect-value)}
+.home-cat-item a{text-decoration:none;color:var(--decor-color)}
+.home-cat-item-wrapper:before {position: absolute;top: 0;left: -75%;z-index: 1;display: block;content: '';width: 50%;height: 100%;background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.25) 100%);transform: skewX(-24deg); transition: all 0.5s ease-out;}
+.home-cat-item-wrapper:hover:before{left: 125%;}
+
+/* 22 Наклейка  */
+.block-name{display:block;position:absolute;top:60px;left:-65px; color:var(--decor-color);font-size:13px;padding:14px 14px;line-height:1; text-decoration:none; z-index: -1; transform: rotate(-90deg); text-transform: uppercase; letter-spacing: 0.5px;}
+.further-reading .block-name {top:85px;left:-86px}
+
+ /* 23 Блог  + архивы */
+.blog-thumbnail{float:left;margin-right:35px;max-width:300px;max-height:255px;overflow:hidden; position: relative}
+.blog-thumbnail img{transition:all .5s ease}
+.blog-thumbnail:hover img{transform:scale(1.15,1.15)}
+.gp-entry{width:100%; float: left; background:var(--decor-color); margin-top: 50px; box-shadow: var(--block-box-shadow);  padding: 30px; border-radius: 4px}
+.gp-entry:nth-of-type(1){margin-top:0}
+.gp-entry .post-content  {font-size: 17px}
+.standart-post h2.post-title {font-size: 26px}
+.grid-wrapper {width:100%; display:flex;flex-flow:row wrap;justify-content:space-between;position:relative; margin: 0} 
+.grid-post {flex-basis: 31%; margin: 0 0 40px 0 !important}
+.grid-post h2.post-title {font-size: 17px; margin: 0}
+.flex-align-fix { visibility: hidden; padding:0 !important; margin: 0 !important}
+
+/* 24 Информация о публикации */
+.post-date,.post-info{font-size:13px;color:var(--support-color);display:block;margin-bottom:15px}
+.post-info {padding-top: 12px;font-size:14px;}
+.post-info a{color:var(--support-color);text-decoration:none}
+.post-info a:hover{text-decoration:underline}
+.grid-post .post-info {font-size:12px}
+
+/* 25 Бесконечная прокрутка в блоге */
+#infscr-loading {float: left; width: 100%}
+.infinite-scroll-loader{  margin: 60px auto 0; text-align: center; width:50px;height:50px;background-size:38px 38px; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg enable-background='new 0 0 512 512' height='512' viewBox='0 0 512 512' width='512' xmlns='http://www.w3.org/2000/svg'%3e%3cg%3e%3cpath d='m30 256c0-124.617 101.383-226 226-226 46.867 0 91.563 14.211 129.196 40.587h-29.074c-8.284 0-15 6.716-15 15s6.716 15 15 15h70.292c8.284 0 15-6.716 15-15v-70.292c0-8.284-6.716-15-15-15s-15 6.716-15 15v37.339c-44.427-34.135-98.504-52.634-155.414-52.634-68.38 0-132.667 26.629-181.02 74.98-48.351 48.353-74.98 112.64-74.98 181.02 0 44.921 11.871 89.182 34.33 127.998 2.78 4.806 7.818 7.49 12.997 7.49 2.55 0 5.134-.651 7.499-2.019 7.17-4.149 9.619-13.325 5.471-20.496-19.82-34.255-30.297-73.321-30.297-112.973z' fill='%23666'/%3e%3cpath d='m477.67 128.002c-4.15-7.171-13.328-9.619-20.496-5.47-7.17 4.149-9.619 13.325-5.471 20.496 19.82 34.253 30.297 73.318 30.297 112.972 0 124.617-101.383 226-226 226-46.863 0-91.551-14.215-129.18-40.587h29.058c8.284 0 15-6.716 15-15s-6.716-15-15-15h-70.291c-8.284 0-15 6.716-15 15v70.292c0 8.284 6.716 15 15 15s15-6.716 15-15v-37.376c44.426 34.146 98.496 52.671 155.413 52.671 68.38 0 132.667-26.629 181.02-74.98 48.351-48.353 74.98-112.64 74.98-181.02 0-44.923-11.871-89.184-34.33-127.998z' fill='%23666'/%3e%3cpath d='m389.413 225.863c1.029-3.843.49-7.937-1.499-11.382l-30-51.962c-1.989-3.445-5.266-5.959-9.108-6.989-3.843-1.029-7.937-.491-11.382 1.499l-17.076 9.859c-6.073-4.406-12.538-8.152-19.348-11.209v-19.679c0-8.284-6.716-15-15-15h-60c-8.284 0-15 6.716-15 15v19.678c-6.81 3.058-13.274 6.803-19.348 11.209l-17.076-9.859c-3.445-1.99-7.543-2.529-11.382-1.499-3.843 1.029-7.119 3.543-9.108 6.989l-30 51.962c-1.989 3.445-2.528 7.54-1.499 11.382 1.03 3.843 3.544 7.119 6.989 9.108l16.993 9.81c-.379 3.725-.569 7.473-.569 11.22s.19 7.495.569 11.218l-16.993 9.81c-3.445 1.989-5.959 5.266-6.989 9.108-1.029 3.843-.49 7.937 1.499 11.382l30 51.962c1.989 3.445 5.266 5.959 9.108 6.989 3.844 1.031 7.938.491 11.382-1.499l17.076-9.859c6.073 4.407 12.538 8.152 19.348 11.209v19.68c0 8.284 6.716 15 15 15h60c8.284 0 15-6.716 15-15v-19.678c6.81-3.057 13.274-6.803 19.348-11.209l17.076 9.859c3.444 1.989 7.541 2.528 11.382 1.499 3.843-1.029 7.119-3.543 9.108-6.989l30-51.962c1.989-3.445 2.528-7.54 1.499-11.382-1.03-3.843-3.544-7.119-6.989-9.108l-16.993-9.81c.379-3.725.569-7.473.569-11.22s-.19-7.495-.569-11.218l16.993-9.81c3.445-1.99 5.959-5.266 6.989-9.109zm-55.032 14.041c1.074 5.263 1.619 10.679 1.619 16.096s-.545 10.833-1.619 16.096c-1.292 6.324 1.607 12.765 7.196 15.992l12.856 7.422-15 25.98-12.963-7.484c-5.592-3.229-12.626-2.516-17.458 1.772-8.18 7.261-17.517 12.67-27.751 16.078-6.128 2.04-10.262 7.773-10.262 14.232v14.912h-30v-14.912c0-6.458-4.134-12.192-10.262-14.232-10.234-3.408-19.571-8.817-27.751-16.078-4.831-4.289-11.865-5.001-17.458-1.772l-12.963 7.484-15-25.98 12.856-7.422c5.589-3.227 8.488-9.668 7.196-15.992-1.072-5.263-1.617-10.679-1.617-16.096s.545-10.833 1.619-16.096c1.292-6.324-1.607-12.765-7.196-15.992l-12.856-7.422 15-25.98 12.963 7.484c5.593 3.23 12.626 2.517 17.458-1.772 8.18-7.261 17.517-12.67 27.752-16.078 6.127-2.041 10.261-7.774 10.261-14.232v-14.912h30v14.912c0 6.458 4.134 12.191 10.261 14.232 10.235 3.408 19.572 8.817 27.752 16.078 4.831 4.289 11.865 5.001 17.458 1.772l12.963-7.484 15 25.98-12.856 7.422c-5.591 3.227-8.49 9.668-7.198 15.992z' fill='%23666'/%3e%3cpath d='m256 201c-30.327 0-55 24.673-55 55s24.673 55 55 55 55-24.673 55-55-24.673-55-55-55zm0 80c-13.785 0-25-11.215-25-25s11.215-25 25-25 25 11.215 25 25-11.215 25-25 25z' fill='%23666'/%3e%3c/g%3e%3c/svg%3e"); background-position: center center; background-repeat:no-repeat}
+.page-jump, #infscr-loading img { display:none}
+#infscr-loading p{font-size:20px;display: block;font-weight: var(--font-medium); margin-top:50px}
+.grid-wrapper .infinite-scroll-loader{margin-top: 10px}
+.grid-wrapper #infscr-loading p{font-size:18px; text-align: center; margin-top:0}
+.animated{-webkit-animation-duration:1s;-webkit-animation-fill-mode:both;animation-duration:1s;animation-fill-mode:both}
+.animated.infinite{-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite}
+.animated.fast{-webkit-animation-duration:1.3s;animation-duration:1.3s}
+@keyframes rotateIn {
+from {transform: rotate3d(0, 0, 1, 200deg);opacity: 0;}
+to {transform: translate3d(0, 0, 0);opacity: 1;}
+}
+.rotateIn {animation-name: rotateIn;transform-origin: center}
+
+/* 26 Красивые анонсы */
+.specialpost{position: relative; background-position:center center;background-repeat:no-repeat;background-size:cover; border-radius: 4px}
+.specialpost:before{content:'';position:absolute;top:0;left:0;right:0;height:100%;background:rgba(0,0,0,.5);z-index:1}
+.specialpost-caption{ color:var(--decor-color); padding: 55px 40px 55px 40px; position: relative; z-index: 1}
+.specialpost-caption a{color:var(--decor-color);text-decoration:none}
+.specialpost-caption a:hover{color:var(--decor-color);text-decoration:underline}
+.specialpost-caption h2.post-title {font-size:30px; margin-bottom: 20px}
+.specialpost-caption .post-info, .specialpost-caption .post-info a {color: var(--decor-color)}
+.specialpost-caption .post-content {font-size: 18px; line-height: 1.6}
+a.more-link {display: block; font-weight: var(--font-medium); text-transform: uppercase; font-size: 14px; color: var(--decor-color); text-decoration: none; letter-spacing: .6px;}
+a.more-link:hover {text-decoration: underline}
+.specialpost-caption a.more-link {margin-top: 15px}
+
+/* 27 Постраничная навигация в блоге  */
+.pagination{display:block;width:100%;float:left;margin:50px 0 15px; position: relative; z-index: 1}
+.pagination .page-numbers,.pagination a.page-numbers,.pagination .page-numbers.current, .pagination .post-page-numbers, .pagination.post-page-numbers.current{display:inline-block;font-size:16px;padding:13px 16px;text-decoration:none;margin:0;font-weight:400;line-height:1;margin-right:5px; border-radius: 4px; box-shadow: var(--block-box-shadow);}
+.pagination a.page-numbers{background:var(--decor-color)}
+.pagination .dots {background: none; box-shadow: none}
+.pagination .dots:hover{background:none!important;color:#444!important}
+.pagination .page-numbers.current,.pagination .page-numbers:hover, .pagination .post-page-numbers:hover, .pagination .post-page-numbers.current{color:var(--decor-color)}
+.home .paged main, .home .paged #sidebar {margin-top: 120px}
+.gp-container .pagination {margin-bottom: 0}
+.grid-wrapper .pagination {margin-top: 10px}
+
+/* 28 Оформление элементов блога, рубрик, поиска, 404  */
+.archive-desc{ padding-top:20px}
+.search-desc{font-size:14px; display:block; margin-top: 10px}
+.search a.more-link, .standart-post a.more-link{color: #444}
+.arch-header h1.page-title, .search-header h1.page-title {margin-bottom: 0}
+.page404-figure {float: left; width: 100%; background:#282d3c;   height: 400px; line-height: 400px; text-align: center}
+.page404-figure span {color: var(--decor-color); font-size: 60px; font-weight: 700}
+.arch-header .breadcrumbs, .arch-header .page-title, .search-header .page-title, .search-desc, .search-header .breadcrumbs{text-align: center}
+.arch-header, .search-header{width:100%;float:left;margin-bottom:40px; background:var(--decor-color);  box-shadow: var(--block-box-shadow);  padding: 30px;  border-radius: 4px}
+
+/* 29 Дочерние рубрики в архивах  */
+ul.gp-child-cat-list{ margin: 20px 0 0; text-align: center}
+ul.gp-child-cat-list li{display:inline-block;font-size:14px }
+ul.gp-child-cat-list li a{display:block; padding:7px 15px;display:inline-block;position:relative;background:#f7f6fb; margin: 0 8px 10px; text-decoration: none}
+ul.gp-child-cat-list li a:hover {text-decoration:underline} 
+ 
+ /* 30 Шаблон записи  */
+.gp-single-post {width:100%; float:left; background:var(--decor-color);  box-shadow: var(--block-box-shadow);  padding: 30px; border-bottom-left-radius:4px; border-bottom-right-radius: 4px}
+main.fullwidth .gp-single-post  {padding: 30px 50px}
+
+/* 31 Хлебные крошки  */
+.breadcrumbs{font-size:14px;color:var(--support-color);margin-bottom:15px}
+.breadcrumbs a{text-decoration:none;color:var(--support-color)}
+.breadcrumbs a:hover{text-decoration:underline}
+.breadcrumbs__separator .dashicons-arrow-right-alt{font-size:11px!important;font-weight:400;padding-top:5px}
+
+/* 32 Элементы записи - заголовок, изображение записи, отрывок  */
+h1.post-title{font-size:30px;line-height:1.2;margin-bottom:25px}
+.single-thumb{width:100%;float:left;text-align:center; background:#fcfcff; border-top-left-radius: 4px; border-top-right-radius: 4px}
+.single-thumb img{margin:0 auto; border-top-left-radius: 4px; border-top-right-radius: 4px}
+.post-header{width:100%;float:left;margin-bottom:15px}
+.post-header .post-date,.go-comments{font-size:14px;color:var(--support-color);position:relative; display:inline-block}
+.go-comments{float:right;cursor:pointer; padding-top:3px}
+.go-comments:hover{border-bottom:1px dotted var(--support-color)}
+.post-excerpt{ letter-spacing:.6px;line-height:1.5;padding:18px 0;border-top:1px solid var(--support-color);border-bottom:1px solid var(--support-color);margin-bottom:20px}
+.single .post-content{float:left;width:100%;margin-bottom:10px}
+.post-nav {width: 100%; margin: 10px 0; padding: 15px 0; border-top:1px solid #e6e6e6; border-bottom:1px solid #e6e6e6}
+.post-nav p {display: inline-block;  color: var(--support-color); font-size: 15px; margin: 0 25px 0 0}
+.post-nav .post-page-numbers  {display: inline-block; margin-right: 14px; font-size: 15px;}
+
+/* 33 Подвал записей - метки, блок Поделиться  */
+.post-footer{float:left;width:100%;  background:#f7f6fb;   margin-top: 30px; padding: 30px; border-radius: 4px; text-align: center}
+.post-footer p{font-size:17px}
+.gp-post-tags{display:block;color:var(--decor-color);width:100%;float:left;margin:20px 0 0; text-align: center}
+.gp-post-tags a{font-size:13px;text-decoration:none;margin:0 6px;padding:7px 15px;display:inline-block;position:relative;background:#f7f6fb}
+.gp-post-tags a:hover{text-decoration:underline}
+.gp-share-btns em{display:block;font-size:14px;font-style:normal}
+.gp-share-btns ul.svg-social-icons li {transform: scale(0.8,0.8); margin: 0 3px}
+ 
+/* 34 Цитаты в записях  */
+blockquote{margin:10px 0 30px;padding:40px 50px;position:relative;border:0;color:var(--decor-color)}
+blockquote p{margin:0;font-size:19px;letter-spacing:.3px;line-height:1.7;font-weight:400}
+blockquote:before {content:''; position: absolute; top:20px; left:30px;opacity: 0.1; background-repeat:no-repeat;width:100px;height:100px; background-size:100px 100px;background-position: center center; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='95.333px' height='95.332px' viewBox='0 0 95.333 95.332' style='enable-background:new 0 0 95.333 95.332;' xml:space='preserve'%3e%3cg%3e%3cg%3e%3cpath d='M30.512,43.939c-2.348-0.676-4.696-1.019-6.98-1.019c-3.527,0-6.47,0.806-8.752,1.793 c2.2-8.054,7.485-21.951,18.013-23.516c0.975-0.145,1.774-0.85,2.04-1.799l2.301-8.23c0.194-0.696,0.079-1.441-0.318-2.045 s-1.035-1.007-1.75-1.105c-0.777-0.106-1.569-0.16-2.354-0.16c-12.637,0-25.152,13.19-30.433,32.076 c-3.1,11.08-4.009,27.738,3.627,38.223c4.273,5.867,10.507,9,18.529,9.313c0.033,0.001,0.065,0.002,0.098,0.002 c9.898,0,18.675-6.666,21.345-16.209c1.595-5.705,0.874-11.688-2.032-16.851C40.971,49.307,36.236,45.586,30.512,43.939z' fill='%23fff'/%3e%3cpath d='M92.471,54.413c-2.875-5.106-7.61-8.827-13.334-10.474c-2.348-0.676-4.696-1.019-6.979-1.019 c-3.527,0-6.471,0.806-8.753,1.793c2.2-8.054,7.485-21.951,18.014-23.516c0.975-0.145,1.773-0.85,2.04-1.799l2.301-8.23 c0.194-0.696,0.079-1.441-0.318-2.045c-0.396-0.604-1.034-1.007-1.75-1.105c-0.776-0.106-1.568-0.16-2.354-0.16 c-12.637,0-25.152,13.19-30.434,32.076c-3.099,11.08-4.008,27.738,3.629,38.225c4.272,5.866,10.507,9,18.528,9.312 c0.033,0.001,0.065,0.002,0.099,0.002c9.897,0,18.675-6.666,21.345-16.209C96.098,65.559,95.376,59.575,92.471,54.413z' fill='%23fff'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e ")}
+blockquote cite{font-size:14px;display:block;margin-top:20px;font-style:normal;text-align:right}
+.wp-block-pullquote{padding:0;margin:20px 0 35px}
+.wp-block-pullquote blockquote{background:0;padding:20px 0;margin:0;border-top:15px solid #f4f4f4;border-bottom:15px solid #f4f4f4;border-left:0}
+.wp-block-pullquote blockquote:after{display:none}
+.wp-block-pullquote p{margin:0;line-height:1.4;font-size:20px}
+
+/* 35 Оформление галерей в записях  */
+.wp-block-gallery{margin-bottom:15px}
+.wp-block-gallery .blocks-gallery-item{display:inline-block}
+.blocks-gallery-grid{margin:0!important}
+.wp-block-embed.aligncenter iframe{display:block;margin:0 auto 30px;float:none}
+.wp-block-embed.aligncenter figcaption,.wp-block-gallery figcaption{text-align:center;font-size:14px;color:var(--support-color)}
+.blocks-gallery-caption{color:var(--support-color);font-size:14px;margin-bottom:0}
+.wp-block-image{margin-bottom:30px}
+.wp-block-cover{margin-bottom:35px}
+.wp-block-image{position:relative}
+figcaption {color:var(--support-color);font-size:13px; margin: 0; padding: 0; text-align: center}
+img.alignleft,.alignleft img{margin-right:30px}
+.aligncenter figcaption,.wp-block-image figcaption{text-align:center}
+img.alignright,.alignright img{margin-left:30px}
+.alignright figcaption{text-align:right}
+.alignleft figcaption{text-align:left}
+.gallery .gallery-item{float:left;margin-top:0;margin-bottom:10px; padding:0 10px 0 0;width:33.33%}
+.gallery-columns-2 .gallery-item{width:50%}
+.gallery-columns-4 .gallery-item{width:25%}
+.gallery img{padding:8px}
+.gallery img:hover{background:white}
+.gallery-columns-2 .attachment-medium{max-width:92%;height:auto}
+.gallery-columns-4 .attachment-thumbnail{max-width:84%;height:auto}
+.gallery .gallery-caption{color:var(--support-color);font-size:17px;margin:0 0 12px 5px}
+.gallery dl,.gallery dt{margin:0}
+.gallery br+br{display:none}
+.img-attach{display:block;text-align:center}
+.wp-caption {width:100% !important}
+
+/* 36 Навигация внутри записей - предыдущая, следующая */
+.post-navigation{width:100%;float:left;display:flex;flex-flow:row wrap;justify-content:space-between; margin-top: 40px}
+.nav-box-next, .nav-box-prev{flex-basis:48%;background:var(--decor-color); padding: 30px; box-shadow: var(--block-box-shadow); border-radius: 4px}
+.nav-box-next{ margin-left:auto}
+.nav-box-img{position:relative}
+.nav-box em{font-size:14px;line-height:1;display:block;font-style:normal;position:absolute;bottom:0;padding:12px 18px; text-align:center; color:var(--decor-color);background:rgba(0,0,0,.5);z-index:1}
+.nav-box-prev.nav-box-prev{left:0}
+.nav-box-next.nav-box em{right:0;text-align:right}
+.nav-box span.post-title{font-size:16px;line-height:1.35;margin:0;display:block;font-weight:var(--font-medium)}
+.nav-box span.post-title a{text-decoration:none}
+.nav-box span.post-title a:hover{text-decoration:underline}
+
+/* 37 Записи из той же рубрики */
+.more-posts{width:100%;float:left;margin-top:50px}
+.more-posts_block-title{display:block;font-size:14px; margin-bottom:25px;text-align:center}
+.more-posts_wrapper{width:100%;display:flex;flex-flow:row wrap;justify-content:space-between}
+.more-posts_item{width:48%;margin-top:30px;  background:var(--decor-color); padding: 22px; box-shadow: var(--block-box-shadow); border-radius: 4px}
+.more-posts_item:nth-of-type(1),.more-posts_item:nth-of-type(2){margin-top:0}
+.more-posts_title{display:block;font-weight:var(--font-medium);font-size:16px;line-height:1.35}
+.more-posts_title a{color:inherit;text-decoration:none}
+.more-posts_title a:hover{text-decoration:underline}
+.more-posts_thumbnail{float:left;margin-right:20px}
+
+/* 38 Анимация миниатюр в разделе Записи из той же рубрики */
+.medium-thumbnail{max-width:342px;max-height:200px;overflow:hidden;margin-bottom:12px;position:relative}
+.medium-thumbnail img{transition:all .5s ease}
+.medium-thumbnail:hover img{transform:scale(1.15,1.15)}
+ 
+/* 39 Таблицы */
+table,.wp-block-table{margin:0 0 25px;border-collapse:collapse;border-spacing:0;width:100%}
+table th{text-align:left;padding:.9em;font-weight:var(--font-medium);border:1px solid #eaeaea;background:#f6f7fb;word-break:normal}
+table td{font-size:16px;padding:.9em;border:1px solid #eaeaea;vertical-align:top;word-break:normal}
+table tr:nth-of-type(odd){background:#f6f7fb}
+table tr:nth-of-type(even){background:var(--bg-color)}
+.wp-block-table{border-collapse:collapse}
+table {margin-bottom: 6px}
+
+/* 40 Списки темы - маркированные  */
+.post-content ul li,.widget ul li,.gp-custom-content ul li{position:relative;padding:0;margin-bottom:9px;list-style-type:none;padding-left:20px}
+.post-content ul li:before,.widget ul li:before,.gp-custom-content ul li:before{content:'';position:absolute;top:10px;left:0;width:9px;height:9px;border-radius:50%}
+.post-content ul li ul,.widget ul li ul,.gp-custom-content ul li ul{margin:15px 0 15px 5px}
+.post-content ul li ul li ul,.widget ul li ul li ul,.gp-custom-content ul li ul li ul{margin:10px 0 14px 5px}
+ul li:last-child{margin-bottom:0}
+footer .widget ul li:before{top:8px}
+.post-content ul,.post-content ol{margin:15px 0 25px 10px}
+.post-content .wp-block-gallery li{padding:0}
+.post-content .wp-block-gallery li:before,ul.featured-list li:before{content:'';background:none!important}
+
+/* 41 Списки темы - нумерованные  */ 
+ol{list-style:decimal;list-style-position:inside;margin:25px 0 25px 0}
+ol li{margin:0;padding:0 0 10px 0}
+ol ol{list-style:upper-alpha}
+ol ol ol{list-style:lower-roman}
+ol ol ol ol{list-style:lower-alpha}
+
+/* 42 Виджеты  */
+.widget-title{margin-bottom:25px; font-size: 17px; font-weight:var(--font-medium);display:block; border-bottom:1px solid #f0f0f1;padding-bottom:13px}
+.widget{margin-bottom:40px; background:var(--decor-color);   box-shadow: var(--block-box-shadow);  padding: 30px;  border-radius: 4px}
+#sidebar .widget:last-child{margin-bottom:0}
+.widget p a{text-decoration:underline}
+.widget p a:hover{text-decoration:underline}
+.widget li a{text-decoration:none}
+.widget li a:hover{text-decoration:underline}
+
+/* 43 Облако меток  */
+.widget .tagcloud{width:100%;display:inline-block}
+.widget .tagcloud a{float:left;line-height:12px;font-size:12px!important;text-decoration:none;margin:0 9px 9px 0;padding:8px 9px;text-transform:uppercase;border:1px solid rgba(29,43,100,.1)}
+.widget .tagcloud a:hover{text-decoration:none}
+
+/* 44 Календарь  */
+.widget #calendar_wrap{width:100%;font-size:13px}
+.widget #wp-calendar th{text-align:center;padding:5px 4px;font-size:13px;font-weight:var(--font-medium);border:1px solid rgba(29,43,100,.06)}
+.widget #wp-calendar td{padding:5px 3px;border:1px solid rgba(29,43,100,.06);text-align:center}
+.widget #wp-calendar caption{font-size:16px;margin-bottom:10px}
+ 
+/* 45 Виджет поиск */
+.widget_search input[type="search"]{-webkit-backface-visibility:hidden;background:var(--decor-color);border:solid 1px rgba(29,43,100,.4);outline:0;padding:12px 10px;-webkit-appearance:none;outline-offset:0;border-radius:0;font-size:16px;float: left; width: 67%; margin-right: 3%}
+.widget_search input[type="submit"]{ padding:12px 10px;text-align:center;line-height:1.46;font-size:16px; font-weight: var(--font-medium); cursor:pointer;border:0; transition:var(--effect-value);font-family:inherit;-webkit-appearance:none;box-shadow:none;color:var(--decor-color); float: left; width: 30%; --direction:90deg}
+.widget_search input[type="search"]:focus{border-color:#0073aa;outline:thin solid rgba(0,115,170,0.15)}
+.widget_search input[type="submit"]:hover{--direction:-90deg}
+
+/* 46 Вывод записей списоком в виджетах*/
+.list-item{float:left;width:100%;margin-bottom:25px;padding-bottom:25px;border-bottom:1px solid #e6e6e6}
+.list-item:last-child,ul.featured-list li:last-child{border:0;padding:0!important;margin-bottom:0!important}
+.list-item span,ul.featured-list li span{font-size:15px;display:block;line-height:1.40;font-weight:var(--font-medium)}
+.list-item span a,ul.featured-list li span a{text-decoration:none}
+.list-item span a:hover,ul.featured-list-item li span a:hover{text-decoration:underline}
+ul.featured-list li .post-info {font-size: 12px; margin-bottom: 10px}
+
+/* 47 Анимация миниатюры в списках и виджетах */
+.small-thumbnail{float:left;margin:0 26px 0 0;position:relative;transition:var(--effect-value)}
+.small-thumbnail:hover{transform:translate(0,-5px)}
+
+/* 48 Встроенные виджеты Избранная рубрика и Свежие новости */
+ul.featured-list li{float:left;width:100%;margin-bottom:30px!important;padding:0 0 25px 0!important;border-bottom:1px solid #f0f0f1;list-style:none;position:relative}
+.widget ul li:before ul.featured-list li:before{background:0}
+.gp-featured-posts-widget .small-thumbnail:before{content:'\2605';position:absolute;top:-10px;left:-10px;z-index:1; font-size:14px;line-height:34px;width:34px;height:34px;text-align:center;color:var(--decor-color);border-radius:50%;transform:rotate(-10deg)}
+.gp-recent-posts-widget ul.featured-list li span{font-size:16px}
+.gp-recent-posts-widget ul{counter-reset:myCounter}
+.gp-recent-posts-widget ul li{list-style:none}
+.gp-recent-posts-widget ul li .medium-thumbnail:after{counter-increment:myCounter;content:counter(myCounter);text-align:center;line-height:34px;width:34px;height:34px;position:absolute;top:10px;right:10px;z-index:1;border-radius:50%;font-size:17px;color:var(--decor-color)}
+
+/* 49 Встроенный виджет слайдер  */
+.gp-sli-wid{margin:0;position:relative;max-width:370px; overflow: hidden}
+.widget-slider-wrap{max-width:345px;height:390px;background-position:center center;background-repeat:no-repeat;background-size:cover}
+.widget-slider-wrap:before {content:'';position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,1) 100%);z-index:1; transition: var(--effect-value)}
+.widget-slider-caption{position:absolute;bottom:0px;left:30px; width:80%;z-index:100; padding-bottom: 30px; font-size:17px;line-height:1.45;font-weight:var(--font-bold)}
+.widget-slider-caption {color:var(--decor-color);text-decoration:none}
+.gp-sli-wid .owl-dots, .gp-sli-wid .owl-prev{display:none}
+.gp-sli-wid .owl-next {width: 40px; height: 40px; font-size: 20px; line-height: 20px; top:45%;margin-top:0;right:20px; z-index: 1}
+
+/* 50 Встроенный виджет Рубрики */
+.gp-cat-list-widget { background: #282d3c}
+.gp-cat-list-widget .widget-title { color: inherit}
+.gp-cat-list-widget li {font-size: 16px; font-weight: 400; margin-bottom: 15px !important;  padding: 0 0 10px 20px!important;  border-bottom:1px solid #3c3e46;  transition:var(--effect-value);   }
+ul.gp-cat-list li:last-child{margin-bottom: 0 !important;  border: 0; padding: 0 0 5px 20px !important}
+.gp-cat-list-widget li:before {top:8px !important}
+.gp-cat-list-widget li a {color: #f9f9f9}
+.gp-cat-list-widget li ul.children {display: none; margin:15px 0 5px 5px !important}
+.gp-cat-list-widget li ul.children li {text-transform: none; font-size: 16px;  border: 0; padding: 0 0 0 20px !important; margin-bottom: 13px}
+.gp-cat-list-widget li ul.children li:last-child{margin-bottom: 0 !important}
+.gp-cat-list-widget li.parent-item {position: relative; cursor: pointer}
+.gp-cat-list-widget li.parent-item:after {content: '↓'; width: 21px; height: 21px;   position: absolute; top:0px; right: 0px;line-height: 22px; text-align: center; font-size: 14px; font-weight: 400; color: #f9f9f9;  }
+.gp-cat-list-widget li.parent-item.opened:after {content: '↓'; transform: rotate(180deg)}
+.gp-cat-list-widget ul.children li.parent-item:after {top:-5px}
+
+/*51 Виджет об авторе*/
+.about-me-widget{width:100%;position:relative; padding-top:0!important;overflow:hidden; background: var(--decor-color); text-align: center}
+.gp-about-me-img {margin-top:40px}
+.gp-about-me-img img{width:150px; height:150px;  position:relative;  border-radius: 50%;  margin: 0 auto;  box-shadow: 0 5px 20px rgba(0,0,0,.3)}
+.about-me-widget:before{content:'';position:absolute; top:0; left: 0; right: 0; height: 130px}
+.gp-about-me-name{font-size:14px;margin:20px 0 0;text-transform:uppercase; letter-spacing: 1px;  font-weight:var(--font-medium); display: block}
+.gp-about-me-text {padding:10px 0 20px;font-size:15px; line-height:1.55; display: block}
+.gp-about-me-phone, .gp-about-me-mail { display: block; font-size:17px; font-weight: var(--font-medium); }
+.gp-about-me-mail {font-size:14px; font-weight: 400;}
+.gp-about-me-phone a{text-decoration: none}
+.gp-about-me-phone a:hover{text-decoration: underline}
+.about-me-widget p {display: block; margin-top: 6px}
+.about-me-widget p a {color: #999}
+
+/* 52 Блок Читайте также над подвалом */
+.further-reading{width:100%;float:left;padding:30px; margin:30px 0 20px; background:var(--decor-color);    box-shadow: var(--block-box-shadow);  position: relative;  border-radius: 4px; z-index: 1}
+.further-reading-item{flex-basis:30%;margin-top:40px}
+.further-reading-item:nth-of-type(1),.further-reading-item:nth-of-type(2),.further-reading-item:nth-of-type(3){margin-top:0}
+.further-reading-title{text-align:center;font-weight:var(--font-medium);font-size:20px;margin-bottom:35px;display:block}
+.further-reading-item span{font-weight:var(--font-medium);font-size:16px;line-height:1.4;display:block}
+.further-reading-item span a{text-decoration:none}
+.further-reading-item span a:hover{text-decoration:underline}
+
+/* 53 Кнопки соц сетей  */
+ul.svg-social-icons{margin:20px 0;display:block;width:100%; text-align: center}
+ul.svg-social-icons li{display:inline-block;list-style:none;width:40px;height:40px;margin:0 3px;padding:0;  transform: scale(0.85,0.85)}
+.widget ul.svg-social-icons li:before {content: ''; background: none !important}
+.widget ul.svg-social-icons li {padding:0 !important}  
+.widget ul.svg-social-icons {margin-bottom: 5px}
+ul.svg-social-icons li a{display:block;text-indent:-9999px;width:40px;height:40px;border-radius:50%;position:relative;z-index:1;transition:var(--effect-value);text-decoration:none}
+a.inst-icon:hover{background:linear-gradient(45deg,#9d50bb,#9d50bb,#9d50bb)}
+.vk-icon{background:#4d7198}
+.vk-icon:before{content:'';background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg data-icon='vk' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3e%3cpath d='M545 117.7c3.7-12.5 0-21.7-17.8-21.7h-58.9c-15 0-21.9 7.9-25.6 16.7 0 0-30 73.1-72.4 120.5-13.7 13.7-20 18.1-27.5 18.1-3.7 0-9.4-4.4-9.4-16.9V117.7c0-15-4.2-21.7-16.6-21.7h-92.6c-9.4 0-15 7-15 13.5 0 14.2 21.2 17.5 23.4 57.5v86.8c0 19-3.4 22.5-10.9 22.5-20 0-68.6-73.4-97.4-157.4-5.8-16.3-11.5-22.9-26.6-22.9H38.8c-16.8 0-20.2 7.9-20.2 16.7 0 15.6 20 93.1 93.1 195.5C160.4 378.1 229 416 291.4 416c37.5 0 42.1-8.4 42.1-22.9 0-66.8-3.4-73.1 15.4-73.1 8.7 0 23.7 4.4 58.7 38.1 40 40 46.6 57.9 69 57.9h58.9c16.8 0 25.3-8.4 20.4-25-11.2-34.9-86.9-106.7-90.3-111.5-8.7-11.2-6.2-16.2 0-26.2.1-.1 72-101.3 79.4-135.6z' fill='%23ffffff'%3e%3c/path%3e%3c/svg%3e ");background-repeat:no-repeat;width:22px;height:22px;position:absolute;top:11px;left:9px}
+.inst-icon{background: linear-gradient(45deg, #5851db,   #e1306c, #fd1d1d)}
+.inst-icon:before{content:'';background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg data-icon='instagram' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3e%3cpath d='M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z' fill='%23ffffff'%3e%3c/path%3e%3c/svg%3e");background-repeat:no-repeat;width:22px;height:22px;position:absolute;top:9px;left:10px}
+.fb-icon{background:#3b5998}
+.fb-icon:before{content:'';background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg data-icon='facebook-f' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 264 512'%3e%3cpath d='M76.7 512V283H0v-91h76.7v-71.7C76.7 42.4 124.3 0 193.8 0c33.3 0 61.9 2.5 70.2 3.6V85h-48.2c-37.8 0-45.1 18-45.1 44.3V192H256l-11.7 91h-73.6v229' fill='%23ffffff'%3e%3c/path%3e%3c/svg%3e");background-repeat:no-repeat;width:22px;height:22px;position:absolute;top:10px;left:14px}
+.twi-icon{background:#14a1e8}
+.twi-icon:before{content:'';background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg data-icon='twitter' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3e%3cpath d='M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z' fill='%23ffffff'%3e%3c/path%3e%3c/svg%3e");background-repeat:no-repeat;width:22px;height:22px;position:absolute;top:10px;left:10px}
+.tele-icon{background:#08c}
+.tele-icon:before{content:''; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg data-icon='telegram-plane' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3e%3cpath d='M446.7 98.6l-67.6 318.8c-5.1 22.5-18.4 28.1-37.3 17.5l-103-75.9-49.7 47.8c-5.5 5.5-10.1 10.1-20.7 10.1l7.4-104.9 190.9-172.5c8.3-7.4-1.8-11.5-12.9-4.1L117.8 284 16.2 252.2c-22.1-6.9-22.5-22.1 4.6-32.7L418.2 66.4c18.4-6.9 34.5 4.1 28.5 32.2z' fill='%23ffffff'%3e%3c/path%3e%3c/svg%3e");background-repeat:no-repeat;width:22px;height:22px;position:absolute;top:10px;left:10px}
+.ytube-icon{background:#f00}
+.ytube-icon:before{content:'';background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg data-icon='youtube' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3e%3cpath d='M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z' fill='%23ffffff'%3e%3c/path%3e%3c/svg%3e");background-repeat:no-repeat;width:22px;height:22px;position:absolute;top:10px;left:9px}
+.odnkl-icon{background:#ff982c}
+.odnkl-icon:before{content:'';  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512.008 512.008' style='enable-background:new 0 0 512.008 512.008;' xml:space='preserve'%3e%3cg%3e%3cg%3e%3cpath d='M256.002,0c-70.592,0-128,57.408-128,128s57.408,128,128,128s128-57.408,128-128S326.594,0,256.002,0z M256.002,192 c-35.296,0-64-28.704-64-64s28.704-64,64-64s64,28.704,64,64S291.298,192,256.002,192z' fill='%23fff'/%3e%3c/g%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath d='M425.73,252.448c-12.512-12.512-32.736-12.512-45.248,0c-68.608,68.608-180.288,68.608-248.928,0 c-12.512-12.512-32.736-12.512-45.248,0c-12.512,12.512-12.512,32.736,0,45.28c39.808,39.808,90.272,62.496,142.304,68.416 l-91.232,91.232c-12.512,12.512-12.512,32.736,0,45.248s32.736,12.512,45.248,0l73.376-73.376l73.376,73.376 c6.24,6.24,14.432,9.376,22.624,9.376c8.192,0,16.384-3.136,22.624-9.376c12.512-12.512,12.512-32.736,0-45.248l-91.232-91.232 c52.032-5.92,102.496-28.608,142.304-68.416C438.21,285.216,438.21,264.96,425.73,252.448z' fill='%23fff'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e "); background-repeat:no-repeat;width:22px;height:22px;position:absolute;top:9px;left:9px; background-size:22px 22px}
+.whats-icon{background:#00e47c}
+.whats-icon:before{content:''; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg height='682pt' viewBox='-23 -21 682 682.66669' width='682pt' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m544.386719 93.007812c-59.875-59.945312-139.503907-92.9726558-224.335938-93.007812-174.804687 0-317.070312 142.261719-317.140625 317.113281-.023437 55.894531 14.578125 110.457031 42.332032 158.550781l-44.992188 164.335938 168.121094-44.101562c46.324218 25.269531 98.476562 38.585937 151.550781 38.601562h.132813c174.785156 0 317.066406-142.273438 317.132812-317.132812.035156-84.742188-32.921875-164.417969-92.800781-224.359376zm-224.335938 487.933594h-.109375c-47.296875-.019531-93.683594-12.730468-134.160156-36.742187l-9.621094-5.714844-99.765625 26.171875 26.628907-97.269531-6.269532-9.972657c-26.386718-41.96875-40.320312-90.476562-40.296875-140.28125.054688-145.332031 118.304688-263.570312 263.699219-263.570312 70.40625.023438 136.589844 27.476562 186.355469 77.300781s77.15625 116.050781 77.132812 186.484375c-.0625 145.34375-118.304687 263.59375-263.59375 263.59375zm144.585938-197.417968c-7.921875-3.96875-46.882813-23.132813-54.148438-25.78125-7.257812-2.644532-12.546875-3.960938-17.824219 3.96875-5.285156 7.929687-20.46875 25.78125-25.09375 31.066406-4.625 5.289062-9.242187 5.953125-17.167968 1.984375-7.925782-3.964844-33.457032-12.335938-63.726563-39.332031-23.554687-21.011719-39.457031-46.960938-44.082031-54.890626-4.617188-7.9375-.039062-11.8125 3.476562-16.171874 8.578126-10.652344 17.167969-21.820313 19.808594-27.105469 2.644532-5.289063 1.320313-9.917969-.664062-13.882813-1.976563-3.964844-17.824219-42.96875-24.425782-58.839844-6.4375-15.445312-12.964843-13.359374-17.832031-13.601562-4.617187-.230469-9.902343-.277344-15.1875-.277344-5.28125 0-13.867187 1.980469-21.132812 9.917969-7.261719 7.933594-27.730469 27.101563-27.730469 66.105469s28.394531 76.683594 32.355469 81.972656c3.960937 5.289062 55.878906 85.328125 135.367187 119.648438 18.90625 8.171874 33.664063 13.042968 45.175782 16.695312 18.984374 6.03125 36.253906 5.179688 49.910156 3.140625 15.226562-2.277344 46.878906-19.171875 53.488281-37.679687 6.601563-18.511719 6.601563-34.375 4.617187-37.683594-1.976562-3.304688-7.261718-5.285156-15.183593-9.253906zm0 0' fill='%23fff'/%3e%3c/svg%3e"); background-repeat:no-repeat;width:22px;height:22px;position:absolute;top:9px;left:9px; background-size:22px 22px}
+.viber-icon{background:#6246bc}
+.viber-icon:before{content:''; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg id='Bold' enable-background='new 0 0 24 24' height='512' viewBox='0 0 24 24' width='512' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m23.155 13.893c.716-6.027-.344-9.832-2.256-11.553l.001-.001c-3.086-2.939-13.508-3.374-17.2.132-1.658 1.715-2.242 4.232-2.306 7.348-.064 3.117-.14 8.956 5.301 10.54h.005l-.005 2.419s-.037.98.589 1.177c.716.232 1.04-.223 3.267-2.883 3.724.323 6.584-.417 6.909-.525.752-.252 5.007-.815 5.695-6.654zm-12.237 5.477s-2.357 2.939-3.09 3.702c-.24.248-.503.225-.499-.267 0-.323.018-4.016.018-4.016-4.613-1.322-4.341-6.294-4.291-8.895.05-2.602.526-4.733 1.93-6.168 3.239-3.037 12.376-2.358 14.704-.17 2.846 2.523 1.833 9.651 1.839 9.894-.585 4.874-4.033 5.183-4.667 5.394-.271.09-2.786.737-5.944.526z' fill='%23fff'/%3e%3cpath d='m12.222 4.297c-.385 0-.385.6 0 .605 2.987.023 5.447 2.105 5.474 5.924 0 .403.59.398.585-.005h-.001c-.032-4.115-2.718-6.501-6.058-6.524z' fill='%23fff'/%3e%3cpath d='m16.151 10.193c-.009.398.58.417.585.014.049-2.269-1.35-4.138-3.979-4.335-.385-.028-.425.577-.041.605 2.28.173 3.481 1.729 3.435 3.716z' fill='%23fff'/%3e%3cpath d='m15.521 12.774c-.494-.286-.997-.108-1.205.173l-.435.563c-.221.286-.634.248-.634.248-3.014-.797-3.82-3.951-3.82-3.951s-.037-.427.239-.656l.544-.45c.272-.216.444-.736.167-1.247-.74-1.337-1.237-1.798-1.49-2.152-.266-.333-.666-.408-1.082-.183h-.009c-.865.506-1.812 1.453-1.509 2.428.517 1.028 1.467 4.305 4.495 6.781 1.423 1.171 3.675 2.371 4.631 2.648l.009.014c.942.314 1.858-.67 2.347-1.561v-.007c.217-.431.145-.839-.172-1.106-.562-.548-1.41-1.153-2.076-1.542z' fill='%23fff'/%3e%3cpath d='m13.169 8.104c.961.056 1.427.558 1.477 1.589.018.403.603.375.585-.028-.064-1.346-.766-2.096-2.03-2.166-.385-.023-.421.582-.032.605z' fill='%23fff'/%3e%3c/svg%3e");  background-repeat:no-repeat;width:22px;height:22px;position:absolute;top:9px;left:9px; background-size:22px 22px}
+
+/* 54 Кнопки соц сетей в подвале */
+footer ul.svg-social-icons {margin: 25px 0}
+footer ul.svg-social-icons li{width:30px;height:30px;margin:0 6px 0 6px;}
+footer ul.svg-social-icons li a{width:30px;height:30px} 
+footer .vk-icon:before {width: 16px; height: 16px; top:9px;left:7px}
+footer .inst-icon:before {width: 16px; height: 16px; top:7px;left:8px}
+footer .fb-icon:before {width: 16px; height: 16px; top:8px;left:11px}
+footer .twi-icon:before{width: 16px; height: 16px; top:8px;left:8px}
+footer .tele-icon:before{width: 16px; height: 16px; top:8px;left:7px}
+footer .ytube-icon:before{width: 16px; height: 16px; top:8px;left:7px}
+footer .odnkl-icon:before {width: 16px; height: 16px; top:6px;left:7px; background-size:16px 16px}
+
+/* 55 Список коммментариев  */
+ol.commentlist{margin:0 0 40px 0;position:relative;z-index:1;padding:0}
+ol.commentlist li div.vcard cite.fn a.url:hover{text-decoration:none}
+ol.commentlist li{margin-top:25px;list-style-type:none;padding:0;position:relative;font-size:17px}
+ol.commentlist li .fn{font-weight:var(--font-medium);font-size:18px}
+ol.commentlist li div.vcard cite.fn a.url{text-decoration:none}
+ol.commentlist li .comment-author{position:relative}
+ol.commentlist li .avatar{float:left;margin:0 15px 0 0;border-radius:4px}
+ol.commentlist li div.commentmetadata{font-size:12px;color:var(--support-color);margin-bottom:5px}
+ol.commentlist li div.commentmetadata a{color:var(--support-color);text-decoration:none}
+ol.commentlist li div.commentmetadata a:hover{text-decoration:underline}
+.comment-notes{padding:0 0 15px;margin:0}
+.comments-box ol.commentlist li p{margin:3px 0;line-height:1.5}
+span.comment-reply-link{font-size:14px;color:var(--support-color);cursor:pointer;display:block;text-align:center;padding:5px 0;border:1px solid #e4e4e4;width:90px;position:absolute;top:5px;right:0;transition:var(--effect-value)}
+.comments-box ol.children{margin:0 0 0 25px;padding:0;position:relative}
+ol.children li:before{content:'';background:url('img/dots.png') no-repeat;position:absolute;top:-11px;left:-25px;width:15px;height:15px}
+.gp-comment-form{position:relative;z-index:1}
+p.comment-form-author,p.comment-form-email{width:48%;float:left;margin-left:4%;display:block;margin-bottom:10px}
+p.comment-form-email{margin-right:0}
+.comment-form label{font-size:16px;color:#444;margin-bottom:7px;display:block}
+#reply-title{margin-bottom:10px;font-size:20px;display:block;line-height:1.2;font-weight:var(--font-bold)}
+.comment-title{margin-bottom:40px;font-size:20px;display:block;line-height:1.2;font-weight:var(--font-bold)}
+.comment-reply-title{margin-top:30px}
+.comments-box .says{display:none}
+#respond .logged-in-as {margin-bottom: 20px !important}
+#respond .gp-notice {margin-bottom: 15px !important}
+
+/* 56 Навигация в комментариях */
+.comments-box .navigation{width:100%;margin:20px 0 40px;text-align:center;font-size:16px;border-top:1px solid #e6e6e6;padding-top:20px}
+.comments-box .navigation .nav-previous{width:50%;float:left;text-align:left}
+.comments-box .navigation .nav-next{width:50%;float:right;text-align:right}
+.comments-box .navigation a{color:var(--support-color);text-decoration:none}
+.comments-box .navigation a:hover{text-decoration:underline}
+
+/* 57 Форма отправки комментариев  */
+.comment-form input[type="text"],.comment-form input[type="email"]{font-family:inherit;font-size:16px;width:100%;padding:10px;margin-bottom:10px;border:1px solid rgba(29,43,100,.4)}
+#commentform textarea{font-family:inherit;height:180px;width:100%;border:1px solid rgba(29,43,100,.4);padding:10px;font-size:18px;line-height:24px;display:block;position:relative;z-index:2;margin-bottom:20px}
+.comment-form input[type="submit"]{display:block;width:170px;font-size:16px;float:left;text-align:center;text-decoration:none;border:0;cursor:pointer;padding:15px 0;transition:var(--effect-value);color:var(--decor-color);font-weight:var(--font-medium); margin-bottom:20px; --direction:90deg}
+.comment-form input[type="submit"]:hover{--direction:-90deg}
+.comment-form input:focus,#commentform textarea:focus{border:1px solid #9ab3f5;box-shadow:0 0 0 1px #9ab3f5;outline-color:#9ab3f5}
+.logged-in-as,.comment-notes,.logged-in-as,.form-allowed-tags{color:var(--support-color);font-size:15px;margin-bottom:20px}
+.comment-awaiting-moderation{color:green;font-size:13px;line-height:1.5;display:block;font-style:normal}
+.no-comments{color:var(--support-color);font-weight:var(--font-bold);padding-top:1.6em}
+.comment-navigation+.no-comments{border-top:0}
+.required{color:red}
+.top-text .vcard{display:inline-block;margin-bottom:40px}
+#comments-checkbox{display:block;float:left;margin:4px 10px 15px 5px}
+a#cancel-comment-reply-link{display:inline-block; padding-left: 20px; text-decoration:none;overflow:hidden;width:38px;height:32px}
+a#cancel-comment-reply-link:before{content:"\00D7";font-size:36px;color:red; width:32px; height:32px}
+p.comment-form-comment{margin-bottom:0!important}
+.comment-form p {display: block}
+.gp-comment-text{padding:15px 0 20px}
+.gp-notice{display:inline-block;color:var(--support-color);font-size:15px; margin-top:10px}
+.gp-notice a{color:var(--support-color)}
+ol.commentlist li #respond p.comment-form-author,ol.commentlist li #respond p.comment-form-email{width:48%;float:left;margin-left:4%}
+ol.commentlist li #respond p.comment-form-comment{margin-left:0}
+p.comment-form-author,ol.commentlist li #respond p.comment-form-author{margin-left:0}
+.comment-form-cookies-consent{display:block;width:100%;padding:0 0 20px!important;margin-bottom:0!important}
+.comment-form-cookies-consent label{font-size:14px!important;color:var(--support-color)!important}
+#wp-comment-cookies-consent{float:left;margin:5px 10px 5px 0}
+.comment #respond{margin-bottom:20px;display:inline-block;width:100%}
+
+/* 58 Подвал сайта и кредитсы  */
+footer{padding:55px 50px 20px;font-size:16px;width:100%;float:left;margin-top:35px}
+.footer-col{flex-basis:30%;margin-bottom:40px}
+.footer-col a{text-decoration:underline}
+.footer-col .widget-title{font-size:16px;font-weight:var(--font-bold);padding-bottom:15px;margin-bottom:20px;display:block}
+.credits{float: left; width: 100%; font-size:14px;position:relative;text-align:center}
+.anycode{margin-top:30px}
+.anycode span{display:inline-block}
+footer .widget {background: none; padding: 0; box-shadow: none}
+.footer-text {width: 100%; max-width: 600px;  text-align: center; margin: 20px auto 0; font-size: 14px}
+/* Кнопка вверх  */
+.backtop{width:50px;height:50px;position:fixed;cursor:pointer;transition:var(--effect-value);text-decoration:none; bottom:20px;z-index:100;display:none; border-radius: 50%; font-size:24px; line-height: 46px; --direction:90deg}
+.backtop:before{content:"↑"; color:var(--decor-color)}
+
+/* 59 Поиск в моб. меню */
+.mob-search-wrapper {width: 100%;  margin-top: 20px; display: none}
+.mob-search-field {display:block;float:left;width:71%;margin-right:2%; background: var(--decor-color); padding: 13px 10px; font-size: 15px; color: #444; font-weight: 400; border: 0}
+.mob-searchSubmit {display:block;float:left;width:27%; padding: 13px 0; color:var(--decor-color);  font-size: 15px; font-weight: var(--font-bold); border: 0; --direction:90deg;  cursor: pointer}
+.mob-search-field:focus {border: none}
+.mob-search-field{outline: none}
+
+/* 60 Мобильное меню  */
+.mob-menu{position:absolute;top:0;left:0;right:0;bottom:0;z-index:200; padding:60px 40px 0; transition: var(--effect-value)}
+.mob-menu li{display:block;text-align:left;font-size:16px;position:relative;z-index:1;border-bottom:1px solid #3c415c; font-weight: var(--font-medium)}
+.mob-menu li a{display:inline-block;text-decoration:none;padding:15px 0}
+.mob-menu li:last-child{border:0}
+.mob-menu li a:hover,.mob-menu li ul li a:hover{text-decoration:underline}
+
+/* 61 Кнопка открытия мобильного меню  */
+.hamburger{transform:scale(0.7,0.7);width:50px;height:50px; display:inline-block;cursor:pointer;transition-property:opacity,filter;transition-duration:.15s;transition-timing-function:linear;font:inherit;color:inherit;text-transform:none;background-color:transparent;border:0;margin:0;overflow:visible}
+.hamburger.is-active .hamburger-inner,.hamburger.is-active .hamburger-inner::before,.hamburger.is-active .hamburger-inner::after{background-color:#000}
+.hamburger-box{width:40px;height:24px;display:inline-block;position:relative}
+.hamburger-inner{display:block;top:50%;margin-top:-2px}
+.hamburger-inner,.hamburger-inner::before,.hamburger-inner::after{width:40px;height:4px;background-color:#000;border-radius:4px;position:absolute;transition-property:transform;transition-duration:.15s;transition-timing-function:ease}
+.hamburger-inner::before,.hamburger-inner::after{content:"";display:block}
+.hamburger-inner::before{top:-10px}
+.hamburger-inner::after{bottom:-10px}
+.hamburger--spin .hamburger-inner{transition-duration:.22s;transition-timing-function:cubic-bezier(0.55,0.055,0.675,0.19)}
+.hamburger--spin .hamburger-inner::before{transition:top .1s .25s ease-in,opacity .1s ease-in}
+.hamburger--spin .hamburger-inner::after{transition:bottom .1s .25s ease-in,transform .22s cubic-bezier(0.55,0.055,0.675,0.19)}
+.hamburger--spin.is-active .hamburger-inner{transform:rotate(225deg);transition-delay:.12s;transition-timing-function:cubic-bezier(0.215,0.61,0.355,1); background-color: var(--decor-color)}
+.hamburger--spin.is-active .hamburger-inner::before{top:0;opacity:0;transition:top .1s ease-out,opacity .1s .12s ease-out; background-color: var(--decor-color)}
+.hamburger--spin.is-active .hamburger-inner::after{bottom:0;transform:rotate(-90deg);transition:bottom .1s ease-out,transform .22s .12s cubic-bezier(0.215,0.61,0.355,1); background-color: var(--decor-color)}
+
+/* 62 Бонус - стили для contact form 7  */
+.wpcf7{margin-top:30px!important}
+.wpcf7 input{font-family:inherit;width:100%;float:left;padding:15px;display:block;border:1px solid rgba(29,43,100,.4);margin-bottom:20px;color:#444;font-size:17px;position:relative;background:var(--decor-color)}
+.wpcf7 select{font-family:inherit;width:100%;float:left;padding:15px;display:block;border:1px solid rgba(29,43,100,.4);margin-bottom:20px;color:#444;font-size:17px;position:relative;background:var(--decor-color);-webkit-appearance:none;overflow:hidden;border-radius:0!important;display:block}
+.wpcf7 textarea{font-family:inherit;width:100%;height:200px;float:left;padding:15px;display:block;border:1px solid rgba(29,43,100,.4);margin-bottom:20px;color:#444;font-size:17px;position:relative;background:var(--decor-color)}
+.wpcf7 p{margin:0}
+.wpcf7-response-output,.wpcf7-not-valid-tip,.wpcf7-response-output{font-size:13px!important;display:table;margin:15px 0!important;width:100%}
+.wpcf7 input::placeholder,.wpcf7 textarea::placeholder{color:#444}
+.wpcf7 label{color:var(--support-color);font-size:15px}
+.wpcf7 input[type="submit"]{width:170px;font-size:16px;line-height:1;font-weight:var(--font-medium); text-align:center;text-decoration:none;-webkit-appearance:none;outline:0;border:0;box-shadow:none;cursor:pointer;padding:17px 0;margin:0 0 20px;transition:var(--effect-value);position:relative;display:block;color:var(--decor-color); --direction:90deg}
+.wpcf7 textarea:focus,.wpcf7 select:focus,.wpcf7 input:focus{border-color:#0073aa;outline:thin solid rgba(0,115,170,0.15)}
+.wpcf7 input[type="submit"]:hover{--direction:-90deg}
+
+/* 63 Адаптивные стили */
+@media only screen and (max-width:1460px){
+body {font-size: 17px}
+.header-flex-port {  padding: 0 20px}
+.text-title h1, .text-title span{  font-size: 18px}
+.menunav {text-align: left}
+.menunav ul li {font-size: 13px}
+.menunav li a {margin: 0 5px}
+.switch:before {display: none}
+.header-elements {flex-basis: 10%}
+.menunav {flex-basis: 75%}
+}
+
+@media only screen and (max-width:1360px){
+.slider-caption {padding: 30px 20px}
+.gp-login{text-indent: -9999px; width: 40px; right:105px}
+}
+
+@media only screen and (max-width:1200px){
+header {position: relative; z-index: 1}
+.gp-container {margin-top: 30px; margin-bottom: 30px; padding: 0}
+.theme-switch {top:23px; right:80px}
+.gp-login {top:23px; right: 195px; padding-top: 8px; text-indent: 0; width: auto}
+.search-site {top:23px; right:140px}
+.menunav {text-indent:-9999px;display:none;opacity:0}
+.menu-item-has-children:before {display: none}
+.menu-trigger {width: 20px; height: 20px; position: absolute; top:19px; right: 0; z-index: 10; cursor: pointer;background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'  viewBox='0 0 284.929 284.929'%3E%3Cg%3E%3Cpath d='M282.082,76.511l-14.274-14.273c-1.902-1.906-4.093-2.856-6.57-2.856c-2.471,0-4.661,0.95-6.563,2.856L142.466,174.441 L30.262,62.241c-1.903-1.906-4.093-2.856-6.567-2.856c-2.475,0-4.665,0.95-6.567,2.856L2.856,76.515C0.95,78.417,0,80.607,0,83.082 c0,2.473,0.953,4.663,2.856,6.565l133.043,133.046c1.902,1.903,4.093,2.854,6.567,2.854s4.661-0.951,6.562-2.854L282.082,89.647 c1.902-1.903,2.847-4.093,2.847-6.565C284.929,80.607,283.984,78.417,282.082,76.511z' style='fill:%23ffffff;'/%3E%3C/g%3E%3C/svg%3E%0A"); background-repeat: no-repeat; background-size: 12px 12px; background-position: center center}
+.sub-menu {padding-left: 25px}
+.open_mob {width:50px;height:50px;position:absolute;z-index:999;top:16px;right:15px; display:block}
+.header-flex-port {flex-flow: column nowrap; padding:0 20px}
+.flex-port {padding: 0 20px; margin-bottom: 20px}
+.site-title{flex-basis: 100%}
+.gp-home-slider {margin-top: 0px}
+.paged main, .paged #sidebar  {margin-top: 30px}
+}
+
+@media only screen and (max-width:1160px){
+body {font-size: 16px}
+.gp-home-slider-item {margin-bottom: 30px}
+#popup4 p{font-size: 15px}
+.slider-title {font-size: 18px}
+.home-cat-item, .gp-custom-content{ padding: 20px}
+.gp-entry{padding: 20px; margin-top: 30px}
+.port {padding: 0 20px}
+.post-info {font-size: 13px; margin-bottom: 8px}
+h2.post-title {font-size: 20px}
+.blog-thumbnail {margin-right: 30px}
+.gp-entry .post-content  {font-size: 16px}
+.specialpost-caption h2.post-title {font-size:26px}
+.specialpost-caption{  padding: 50px 30px}
+ #infscr-loading p {padding: 0 20px; text-align: center}
+.widget { padding: 20px}
+ul.svg-social-icons li {margin:0 1px; transform: scale(0.7,0.7)}
+.small-thumbnail {margin-right: 19px}
+.gp-recent-posts-widget ul.featured-list li span {font-size: 16px;}
+.gp-single-post {padding: 20px}
+.single-thumb, .single-thumb img {border-radius: 0}
+ h1.post-title, h1.page-title {font-size: 26px}
+.post-footer, .nav-box-next, .nav-box-prev, .more-posts_item, .comments-box.open {padding: 20px}
+.nav-box span.post-title {font-size: 16px}
+.more-posts_title {font-size:15px}
+.further-reading {padding: 20px; margin-top: 35px}
+.further-reading .flex-port {padding: 0; margin-bottom: 0; width: 100%}
+.further-reading .block-name,  .home-cat-grid .block-name{top:-30px;left:30px; transform: none; display: block; z-index: 10; font-size: 13px; padding: 9px 12px}
+.home-cat-grid .block-name {left: 45px}
+}
+
+@media only screen and (max-width:1100px){
+body {font-size: 15px}
+.slider-widget  .owl-nav {display:block}
+.gp-container {margin-top: 20px}
+.home-cat-item-wrapper {height: 200px}
+.home-cat-item-caption {font-size: 16px}
+.gp-entry .post-content  {font-size: 15px}
+h2.post-title {font-size: 18px}
+.blog-thumbnail {margin-right: 25px}
+.specialpost-caption{  padding: 15px; text-align: left}
+.list-item span, ul.featured-list li span {font-size: 13px}
+.specialpost-caption h2.post-title {font-size:22px; margin-bottom: 16px; text-align: left}
+.specialpost-caption  .post-info {text-align: left; padding: 0}
+.specialpost-caption .post-content {font-size: 15px;   line-height: 1.5; text-align: left; }
+a.more-link {font-size: 11px}
+.widget {margin-bottom: 30px}
+.widget-title {text-align: center}
+.widget .post-info {text-align: left}
+.gp-recent-posts-widget ul.featured-list li span {font-size: 15px;}
+footer {margin-top: 30px; padding:40px 20px 20px;font-size:15px}
+.credits, .footer-text {font-size: 12px}
+.breadcrumbs {font-size: 12px; margin-bottom: 15px}
+h1.post-title, h1.page-title {font-size: 20px; margin-bottom: 20px}
+.post-excerpt{font-size:15px; padding:15px 0}
+.post-header .post-date, .go-comments {font-size: 12px}
+.post-date {margin-bottom: 0}
+blockquote p {font-size: 16px}
+blockquote {padding:40px 30px; margin-bottom: 20px}
+.gp-post-tags a{font-size:11px; padding:5px 7px; margin-bottom: 8px}
+.post-footer{  margin-top: 12px}
+.post-footer p{font-size:14px}
+.gp-social-widget {padding-left: 10px; padding-right: 10px}
+.credits ul.svg-social-icons {margin-top: 25px}
+footer ul.svg-social-icons li {margin:0 2px; transform: scale(0.8,0.8)}
+.toggle-comments {  font-size: 14px}
+.nav-box-prev{  margin-bottom: 25px}
+.nav-box em{font-size:13px ;padding:10px 15px}
+.nav-box {margin-bottom: 20px}
+.nav-box span.post-title{font-size:15px;line-height:1.4; text-align: left}
+.more-posts {margin-top: 30px}
+.gp-cat-list-widget li {font-size: 13px}
+.gp-cat-list-widget li.parent-item:after {  top:-3px}
+.archive-desc { padding-top: 10px; font-size: 14px}
+ul.gp-child-cat-list li{ font-size:13px}
+.archive .gp-container {padding: 0; margin-top: 20px}
+.backtop {transform: scale(0.7,0.7); font-size: 30px; bottom: 10px; right: 10px}
+.arch-header, .search-header {padding: 20px; margin-bottom: 20px}
+ h1{font-size:20px}
+ h2{font-size:18px}
+ h3{font-size:16px}
+ h4{font-size:16px}
+ h5{font-size:16px}
+ h6{font-size:15px}
+.post-content ul li:before,.widget ul li:before,.gp-custom-content ul li:before{ top:8px}
+main.fullwidth .comments-box,main.fullwidth .toggle-comments,main.fullwidth .post-navigation,main.fullwidth .more-posts {width:90%;margin-left:5%;margin-right:0}
+span.comment-reply-link {position: relative; top: auto; right: auto; font-size: 13px; padding: 3px 0; width: 80px}
+.comments-box ol.commentlist li p {font-size: 14px}
+ ol.commentlist li .fn {font-size: 15px}
+.comments-box ol.children {margin: 0 0 0 10px}
+ ol.children li:before {display: none}
+ blockquote cite {font-size: 13px}
+ .single-thumb {background: none}
+.search .post-info,  .search h2.post-title,  .search .gp-entry .post-content,  .search .home-recent .post-content {text-align: left}
+.search-desc {font-size: 13px}
+.search h1.page-title,  .page h1.page-title {margin-bottom: 5px}
+table td, table tr {font-size: 15px}
+.wpcf7 input[type="submit"] {float:none; margin: 10px auto 0}
+.page-contact {margin: 20px 0 10px}
+.page-contact-item {flex-basis: 100%; margin-bottom: 25px}
+.page-contact-item_three, .page-contact-item_four {margin-bottom: 25px}
+.page-contact-item span {font-size: 13px}
+.comment-form input[type="submit"]  {font-size: 15px}
+.gp-cat-list-widget li ul.children li {font-size: 14px}
+.wp-block-embed.aligncenter figcaption, .wp-block-gallery figcaption {font-size: 13px}
+.wp-block-table {margin-bottom: 20px}
+.post-footer ul.svg-social-icons {margin: 18px 0}
+.error404 .post-header {margin-bottom: 0}
+main.fullwidth .gp-single-post  {padding: 30px 30px}
+.paged #sidebar {margin-top: 40px}
+}
+ 
+@media only screen and (max-width:1024px){
+body {font-size: 16px}
+.gp-home-slider {padding: 0; margin-bottom: 30px}
+.slider-caption { position: relative; left: 0; max-width: 100%; transform:none; border-radius:0}
+.gp-home-slider-item a {text-decoration: none}
+.owl-nav {display: none}
+.home-cat-item{ margin-bottom:30px}
+.gp-container {padding: 0}
+ main { width:100%;margin-right:0} 
+#sidebar {width: 100%;  margin-top: 40px}
+.paged main {margin-top: 20px}
+#sidebar .widget {max-width: 360px; float:none; margin: 0 auto 35px}
+.list-item span, ul.featured-list li span{font-size: 15px}
+.footer-col{flex-basis:100%;margin-bottom:40px}
+.footer-col .widget-title{font-size:15px;text-align: center}
+ h1.post-title, h1.page-title {font-size: 25px; margin-bottom: 20px}
+.post-excerpt{font-size:16px; padding:20px 0}
+.gp-entry{margin-top: 35px}
+.gp-entry .post-content  {font-size: 16px}
+h2.post-title {font-size: 21px}
+.grid-post h2.post-title {font-size: 15px}
+.standart-post h2.post-title {font-size: 24px}
+.specialpost-caption h2.post-title {font-size:24px}
+.specialpost-caption .post-content {font-size: 16px}
+.specialpost-caption{  padding: 40px 30px}
+table th,table td{padding:.7em}
+table td{font-size:14px}
+table{overflow-x:auto;display:block;width:fit-content;max-width:100%; margin: 15px auto 20px}
+table::-webkit-scrollbar{height:10px;background:#eee}
+.logged-in-as, .comment-notes, .logged-in-as, .form-allowed-tags  {font-size: 13px; margin-bottom: 5px !important}
+.gp-notice {font-size: 11px; margin-top: 0; padding: 0}
+.comment-form label {font-size: 13px}
+.comment-form-cookies-consent label {font-size: 12px !important}
+.comment-form-cookies-consent {padding-bottom: 10px !important}
+p.comment-form-author, p.comment-form-email, ol.commentlist li #respond p.comment-form-author, ol.commentlist li #respond p.comment-form-email {width:100%; margin: 0 0 15px 0}
+.further-reading-item span {font-size: 15px}
+.nav-box-next, .nav-box-prev {flex-basis: 38%}
+.nav-box-prev {margin-left: auto}
+.nav-box-next {margin-right: auto}
+.page-contact-item {flex-basis: 48%}
+.pagination {text-align: center}
+.gp-cat-list-widget li {font-size: 16px}
+}
+
+@media only screen and (max-width:900px){
+.home-cat-item{flex-basis:48%}
+.nav-box-next, .nav-box-prev {flex-basis: 48%}
+.nav-box-prev {margin-left: 0}
+.nav-box-next {margin-right: 0}
+.further-reading-item {flex-basis: 47%; margin-top: 25px}
+.further-reading-item:nth-of-type(3) {margin-top: 25px}
+.further-reading .block-name {left:50%; transform:translate(-50%,0)}
+main.fullwidth .gp-single-post  {padding: 20px}
+main.fullwidth .more-posts {margin-bottom: 35px}
+.grid-post {flex-basis: 48%}
+ }
+
+ @media only screen and (max-width:800px){
+ .nav-links .page-numbers,.pagination a.page-numbers,.pagination .page-numbers.current{font-size:16px; margin:0 5px; padding: 10px 14px}
+ .nav-links .page-numbers,.pagination .dots{display:none!important}
+ .pagination .page-numbers.current{display:inline-block!important}
+ .pagination .prev,.pagination .next{display:inline-block!important}
+ .popup {padding:50px 30px 40px}
+}
+
+@media only screen and (max-width:700px){
+.more-posts_title {font-size:14px}
+.slider-title {font-size:16px}
+.theme-switch, .gp-login {display: none}
+.search-site, #popup1 { display: none !important}
+.mob-menu .theme-switch, .mob-menu .gp-login {display: block}
+.mob-search-wrapper {display:block}
+.mob-menu .gp-login {top:25px; right: 170px}
+.site-title {flex-basis: 100%}
+.mob-menu{padding:90px 40px 0}
+.blog-thumbnail {margin: 0 auto 5px; float: none}
+.post-info, h2.post-title, .gp-entry .post-content, .home-recent .post-content {text-align: center}
+.specialpost-caption .post-content {text-align: left}
+.post-info {font-size: 12px}
+.page404-figure { height: 300px; line-height: 300px}
+}
+
+@media only screen and (max-width:600px){
+.flex-port {width: 80%}
+.mob-menu {padding: 130px 30px 0}
+.mob-menu .theme-switch {left: 28px}
+.mob-menu .gp-login {top:75px; right:0; left:58px; padding-left: 14px; text-transform: none}
+.mob-menu .theme-switch .switch:after {right:-114px}
+footer .flex-port {width: 100%}
+.home-cat-grid .block-name {left:50%; transform:translate(-50%,0)}
+.home-cat-item{flex-basis:100%}
+.home-cat-item-wrapper {max-width: 400px}
+.go-comments {float: none}
+.post-header .post-date {margin-right: 10px}
+h2.post-title {font-size: 18px}
+.standart-post h2.post-title {font-size: 22px}
+.standart-post .post-info {margin-bottom: 15px}
+.more-posts_item{width:100%;  margin-top: 25px}
+.more-posts_item:nth-of-type(2) {margin-top: 25px}
+.text-title h1, .text-title span {font-size: 18px}
+.port {padding: 0}
+.gp-container {margin:0 0 30px 0}
+.page .gp-container {margin:0 !important}
+.specialpost-caption .post-content {text-align: left}  
+.specialpost-caption {padding: 20px 10px}
+.grid-post {flex-basis: 100%; margin: 0 0 30px 0 !important}
+.grid-post h2.post-title {font-size: 18px}
+.grid-post .medium-thumbnail {float: none; margin: 0 auto 10px}
+main.fullwidth .comments-box, main.fullwidth .toggle-comments, main.fullwidth .post-navigation, main.fullwidth .more-posts {width: 100%; margin-left: 0}
+.further-reading {margin: 0 auto 30px; float: none; max-width: 360px; display: flex}
+.further-reading-item {flex-basis: 100%}
+.further-reading-item:last-child{margin-bottom: 0}
+.further-reading-item:nth-of-type(2) {margin-top: 25px}
+.single #sidebar {margin-bottom: 30px}
+#commentform textarea {font-size: 16px}
+.toggle-comments {border-radius:0 !important}
+ul.gp-child-cat-list li a{padding:5px 10px;margin: 0 5px 10px}
+.post-footer p{font-size:13px}
+footer {font-size:14px}
+.footer-col {margin-bottom: 15px}
+.widget-title {font-size: 15px}
+.list-item span, ul.featured-list li span{font-size: 14px}
+.credits {margin-top:0}
+.post-header .post-date, .go-comments {font-size: 11px}
+}
+
+@media only screen and (max-width:540px){
+.nav-box-next, .nav-box-prev{flex-basis:100%}
+.nav-box-next{  margin-left:0}
+.nav-box-img .medium-thumbnail img {margin: 0 auto}
+.nav-box span.post-title {text-align: center}
+.nav-box-img figure {margin: 0 auto 15px}
+.nav-box em {width: 160px; left: 50%; transform:translate(-50%,0); text-align: center !important}
+h2.post-title {font-size: 16px}
+.specialpost-caption h2.post-title {font-size: 18px}
+h1.post-title, h1.page-title {font-size: 22px}
+.gp-share-btns ul.svg-social-icons li {transform:scale(0.7,0.7); margin: 0 1px}
+.popup {padding: 30px 20px 30px}
+.comment-title, #reply-title {font-size: 16px}
+.small-thumbnail {width: 60px; height: 60px}
+.wp-block-image .alignright,.wp-block-image .alignleft{float:none;margin:0 auto 25px}
+img.alignright,.alignright img{margin:0 auto;display:table}
+}
+
+@media only screen and (max-width:480px){
+body {font-size: 15px}
+.mob-menu .theme-switch {left: 20px}
+.mob-menu .gp-login { left:50px}
+#popup4 p{font-size: 15px}
+.flex-port {width: 100%}
+.home-cat-grid {margin: 5px 0 20px}
+.home-cat-item{flex-basis:100%;margin-bottom:30px; padding: 20px}
+.home-cat-item-wrapper {height: 200px}
+.home-cat-item-caption {font-size: 15px}
+h1.post-title, h1.page-title {font-size: 20px}
+.slider-title {font-size:15px; font-weight: var(--font-medium)}
+.post-excerpt {font-size: 15px}
+.page404-figure { height: 200px; line-height: 200px}
+.page404-figure span {font-size: 40px}
+.gp-cat-list-widget li {font-size: 15px}
+.gp-entry .post-content  {font-size: 15px}
+#reply-title {font-size: 18px; margin-top: 20px}
+.mob-menu {padding: 130px 20px 0}
+.mob-menu li {font-weight: 400}
+.sub-menu {padding-left: 15px}
+.nav-links .page-numbers, .pagination a.page-numbers, .pagination .page-numbers.current {font-size: 14px}
+.comment-form input[type="submit"]  {font-size: 14px; width: 120px; padding: 12px 0}
+.footer-text {font-size:10px}
+.further-reading .block-name, .home-cat-grid .block-name, .post-info {font-size: 11px}
+.specialpost-caption .post-info {margin-bottom: 13px}
+.standart-post h2.post-title {font-size: 20px; margin-bottom: 12px}
+.grid-post h2.post-title {font-size: 16px}
+}
+
+@media only screen and (max-width:375px){
+.text-title h1, .text-title span {font-size: 16px}
+.search-site {right: 70px}
+.flex-port {padding: 0 10px}
+.toggle-comments, .single-post  #sidebar, .post-navigation, .more-posts,  .further-reading, .comments-box.open {width: 100%; margin-left: 0}
+.toggle-comments.opened {margin-left:0}
+.post-footer {padding: 20px 10px}
+.archive .gp-container {padding: 0}
+.blog-thumbnail {margin: 0 0 5px}
+.post-info, h2.post-title, .gp-entry .post-content, .home-recent .post-content {text-align: left}
+.standart-post h2.post-title {font-size: 18px}
+.specialpost-caption {padding: 20px 0}
+blockquote {padding: 20px}
+blockquote p {font-size: 15px}
+.post-header .post-date {margin-right: 10px}
+.mob-menu li{ font-size:15px}
+.mob-menu li a{ padding:12px 0}
+.menu-trigger {top:15px}
+.comments-box ol.commentlist li p {font-size: 13px}
+.specialpost-caption .post-content {font-size: 14px}
+.gp-entry .post-content  {font-size: 14px}
+.popup {padding: 30px 20px 30px}
+}
