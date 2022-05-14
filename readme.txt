@@ -1,8 +1,8 @@
 === BlogPost 3 ===
 Contributor: goodwinpress.ru
 Requires at least: 5.3
-Tested up to: 5.8
-Requires PHP: 7.4
+Tested up to: 5.9+
+Requires PHP: 7.4+
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
